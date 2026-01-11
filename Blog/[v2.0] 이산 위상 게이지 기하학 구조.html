@@ -18,12 +18,11 @@
 <p data-ke-size="size16">공간은 2-복합체 $X=(V, E, P)$로 정의된다.</p>
 <ul style="list-style-type: disc;" data-ke-list-type="disc">
     <li>$V$: 사이트 (0-셀)</li>
-    <li>$E$: 유향 링크 (1-셀). $i\to j$와 $j\to i$는 방향만 반대인 같은 접촉이다.</li>
-    <li>$P = P_4 \cup P_3$:
+    <li>$E$: 유향 링크 (1-셀). $i\to j$와 $j\to i$는 같은 위상차를 가지고 있는 반대 방향 접촉이다. 즉, $E_{ij} = -E_{ji}$이다.</li>
+    <li>$P = P_4 \cup P_3$: 이 플라켓들은 다른 플라켓 결합으로 만들 수 없는 최소단위 플라켓이다.
         <ul style="list-style-type: disc;" data-ke-list-type="disc">
             <li>$P_4$: 사각 플라켓 (정팔면체를 바리온으로 가정하고 사각 플라켓은 쿼크류로 정의하며 입자 기초 단위로 정의한다.)</li>
             <li>$P_3$: 삼각 플라켓 (정사면체를 글루온으로 가정하고 삼각 플라켓은 글루온의 기초 단위로 정의한다.)</li>
-            <li>이 플라켓들은 각각 최소길이 4와 3으로 정의된다.</li>
         </ul>
     </li>
 </ul>
@@ -36,11 +35,14 @@
 <p data-ke-size="size16">임의의 플라켓 $f \in P$ ($P_4$ 또는 $P_3$)에 대해, 경계를 따르는 위상 합(Flux)을 정의한다.<br />$$<br />\boxed{Q_f(k) :=
     \sum_{e \in \partial f} \text{sgn}(f, e) k_e \pmod{12}}<br />$$<br />여기서 $\text{sgn}(f,e)$는 플라켓 순회 방향과 링크 방향의 일치
     여부($\pm 1$)이다.</p>
+<p data-ke-size="size16">플라켓의 “물리 위상합”은 $$\Phi_𝑓≡ \frac{\pi}{6}Q_𝑓(𝑘) \quad (mod \; 2\pi)$$이며, $\Phi_f$는 $mod \;
+    2\pi$만 의미가 있다. 즉, “$\Phi_f=4\pi$” 같은 표현은 물리적으로 $\Phi_𝑓=0$과 동일하다.</p>
+
 <h2 data-ke-size="size26">&nbsp;</h2>
-<h2 data-ke-size="size26">3. 물질(정상파) 섹터: 동역학적 안정성</h2>
+<h2 data-ke-size="size26">3. 물질(정상파) 섹터: 저에너지 무플럭스 섹터</h2>
 <h3 data-ke-size="size23">공리 3.1 (물질 조건)</h3>
-<p data-ke-size="size16">모든 가능한 사각 패턴 중, 경계 위상 합이 사라지는 경우만 "안정한 물질"로 간주한다.<br />$$<br />\boxed{\mathcal{W} := { w \in
-    (\mathbb{Z}_{12})^4 \mid Q(w) \equiv 0 \pmod{12} }}<br />$$</p>
+<p data-ke-size="size16">모든 가능한 사각 패턴 중, 경계 위상 합이 사라지는 경우만 "안정한 기초"인 쿼크류로 간주한다.<br />$$<br />\boxed{\mathcal{W} := \{ w
+    \in (\mathbb{Z}_{12})^4 \mid Q(w) \equiv 0 \pmod{12} \}}<br />$$</p>
 <h3 data-ke-size="size23">해석 3.2 (정상파 의미)</h3>
 <ul style="list-style-type: disc;" data-ke-list-type="disc">
     <li>$Q_p = 0$: 파동이 루프를 돌고 제자리로 왔을 때 위상차 없이 정상파(Standing Wave)를 형성함.</li>
