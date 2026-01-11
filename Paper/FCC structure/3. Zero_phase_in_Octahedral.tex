@@ -1,0 +1,189 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb, amsthm, mathtools, geometry, enumitem}
+\geometry{margin=1in}
+
+\title{From Dihedral Orbits of Quantized Plaquette Phases to Octahedral Realizability: \\
+A Complete Classification in the \(\pi/6\) Lattice Setting}
+\author{Francis W. Han}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We classify all admissible four-tuples of link phases on a square plaquette when
+phases are quantized in units of \(\pi/6\) and restricted to \((-\pi,\pi]\), subject to the
+plaquette closure condition. We then determine exactly which of these can be assigned,
+up to cyclic and reflective symmetries, to the three orthogonal square loops (in the
+\(XY\), \(YZ\), and \(ZX\) planes) of an octahedron so that all eight triangular faces have
+zero phase sum modulo \(2\pi\). The pipeline is:
+\[
+\text{(I) 42 plaquette quadruples}\ \longrightarrow\
+\text{(II) realizability theorem}\ \longrightarrow\ 
+\]
+\[ \text{(III) operational subset (11)}\ \longrightarrow\
+\text{(IV) 9 final classes (sign pairing).}
+\]
+The \(\pi/6\) quantization follows from a \(\mathbb{Z}/12\mathbb{Z}\) torsion in the FCC 2--complex,
+while dihedral (\(D_4\)) symmetry controls plaquette equivalence under cyclic and mirror
+actions.
+\end{abstract}
+
+\section{Setting and notation}
+
+All phases are expressed as integer multiples of \(\pi/6\). Write
+\[
+(a,b,c,d) \;=\; \tfrac{\pi}{6}(k_1,k_2,k_3,k_4),\qquad
+k_i \in \{-5,-4,\dots,6\},\quad k_1<k_2<k_3<k_4,
+\]
+and impose the plaquette closure
+\[
+k_1+k_2+k_3+k_4 \equiv 0 \pmod{12}.
+\]
+The ordering \(k_1<k_2<k_3<k_4\) is just a canonical representative choice; cyclic/reflective
+reorderings of the same four values are regarded as dihedral \(D_4\)-equivalent when we
+consider a plaquette as a square.
+
+\paragraph{Background and context.}
+The \(\pi/6\) quantization can be derived directly from the geometry/topology of the FCC
+2--complex: the link class has the order \(12\) in the relevant homology/cokernel, hence
+\(\phi_e \in (\pi/6)\mathbb{Z} \pmod{2\pi}\) [1]. The dihedral reduction on a square
+plaquette is a standard Burnside/Polya exercise [2].
+
+\section{Stage I: the 42 admissible plaquette quadruples}
+
+Direct enumeration under the rules above yields precisely \(42\) admissible ordered sets
+\((k_1,k_2,k_3,k_4)\). Grouped by integer sum \(S:=k_1+k_2+k_3+k_4\in\{-12,0,12\}\), they are:
+
+\subsection*{Sum \(-12\) (2 cases)}
+\[
+(-5,-4,-3,0),\qquad (-5,-4,-2,-1).
+\]
+
+\subsection*{Sum \(0\) (31 cases)}
+\begin{align*}
+&(-5,-4,3,6),\,(-5,-4,4,5);\\
+&(-5,-3,2,6),\,(-5,-3,3,5);\\
+&(-5,-2,1,6),\,(-5,-2,2,5),\,(-5,-2,3,4);\\
+&(-5,-1,0,6),\,(-5,-1,1,5),\,(-5,-1,2,4);\\
+&(-5,0,1,4),\,(-5,0,2,3);\\
+&(-4,-3,1,6),\,(-4,-3,2,5),\,(-4,-3,3,4);\\
+&(-4,-2,0,6),\,(-4,-2,1,5),\,(-4,-2,2,4);\\
+&(-4,-1,0,5),\,(-4,-1,1,4),\,(-4,-1,2,3);\\
+&(-4,0,1,3);\\
+&(-3,-2,-1,6),\,(-3,-2,0,5),\,(-3,-2,1,4),\,(-3,-2,2,3);\\
+&(-3,-1,0,4),\,(-3,-1,1,3);\\
+&(-3,0,1,2);\\
+&(-2,-1,0,3),\,(-2,-1,1,2).
+\end{align*}
+
+\subsection*{Sum \(12\) (9 cases)}
+\[
+(-3,4,5,6),\quad (-2,3,5,6),\quad (-1,2,5,6),\,(-1,3,4,6),
+\]
+\[
+(0,1,5,6),\,(0,2,4,6),\,(0,3,4,5),\,(1,2,3,6),\,(1,2,4,5).
+\]
+
+\noindent
+These \(42\) are ``raw'' canonical representatives; any cyclic/reflective rearrangement of
+a given quadruple describes the same plaquette up to \(D_4\).
+
+\section{Stage II: octahedral realizability}
+
+Place three square plaquettes in the \(XY\), \(YZ\), and \(ZX\) planes of a unit octahedron
+with vertices \((\pm1,0,0)\), \((0,\pm1,0)\), \((0,0,\pm1)\). The three plaquettes carry the
+\emph{same} four values as above, but each plane may take a cyclic/reflective permutation
+of the 4--set. For the resulting octahedron, each of the eight triangular faces must have
+phase sum \(0\pmod{2\pi}\), i.e. in integer units \(0\pmod{12}\).
+
+Let \(K=\{k_1,k_2,k_3,k_4\}\subset\{-5,\dots,6\}\) with \(k_1<k_2<k_3<k_4\) and
+\(\sum K\equiv0\pmod{12}\). There exists an assignment of \(K\) to the three orthogonal
+plaquettes (each as a cyclic/reflective permutation of \(K\)) such that all eight triangular
+faces of the octahedron have phase sum \(0\pmod{12}\) \emph{if and only if} \(0\in K\).
+
+
+\begin{proof}[Sketch (sufficiency)]
+Write \(K=\{0,x,y,z\}\) with \(x<y<z\) and \(x{+}y{+}z\equiv0\pmod{12}\). Assign
+\[
+\mathrm{XY}=[0,x,y,z],\quad
+\mathrm{YZ}=[0,y,z,x],\quad
+\mathrm{ZX}=[0,z,x,y].
+\]
+Column sums over the three planes are \((0,\,x{+}y{+}z,\,x{+}y{+}z,\,x{+}y{+}z)\equiv(0,0,0,0)\),
+so every triangular face closes.
+\end{proof}
+
+\begin{proof}[Sketch (necessity)]
+If \(0\notin K\), then analyzing the allowed column sums \(T_j\in\{-12,0,12\}\) and the way
+\(\pm6\) can appear in a column (it forces the two companions to be one of
+\((-5,-1),(-4,-2),(1,5),(2,4)\)) shows there is no way---using only permutations of the
+\emph{same} 4--set in three rows---to produce four columns all summing to \(0\pmod{12}\)
+simultaneously; one column inevitably lands in a nonzero residue class. (This is a short
+double-counting/compatibility obstruction once one accounts for the fact each element of
+\(K\) must be used exactly once per row.) Hence realizability fails.
+\end{proof}
+
+\paragraph{Output of Stage II.}
+Exactly those admissible quadruples that \emph{contain \(0\)} are realizable on the octahedron.
+From the list of 42, this leaves the following 14:
+\[
+\begin{array}{l}
+\{-5,-4,-3,0\},\ \{-5,-1,0,6\},\ \{-5,0,1,4\},\ \{-5,0,2,3\},\\[2pt]
+\{-4,-2,0,6\},\ \{-4,-1,0,5\},\ \{-4,0,1,3\},\\[2pt]
+\{-3,-2,0,5\},\ \{-3,-1,0,4\},\ \{-3,0,1,2\},\ \{-2,-1,0,3\},\\[2pt]
+\{0,1,5,6\},\ \{0,2,4,6\},\ \{0,3,4,5\}.
+\end{array}
+\]
+
+\section{Stage III: an operational subset (11)}
+In many applications it is convenient to discard the three \emph{positively} summed cases
+with \(\sum K=12\), keeping only nonpositive representatives. Removing
+\(\{0,1,5,6\}\), \(\{0,2,4,6\}\), \(\{0,3,4,5\}\) from the 14 realizable sets leaves an
+``operational'' subset of 11:
+\[
+\begin{array}{l}
+\{-5,-4,-3,0\},\ \{-5,-1,0,6\},\ \{-5,0,1,4\},\ \{-5,0,2,3\},\\[2pt]
+\{-4,-2,0,6\},\ \{-4,-1,0,5\},\ \{-4,0,1,3\},\\[2pt]
+\{-3,-2,0,5\},\ \{-3,-1,0,4\},\ \{-3,0,1,2\},\ \{-2,-1,0,3\}.
+\end{array}
+\]
+(One can adopt other conventions; this choice simply removes the three \(+\!12\) cases and
+keeps a single representative whenever a sign partner exists within range.)
+
+\section{Stage IV: final 9 classes via sign pairing}
+Finally, identify sets that differ only by a global sign, whenever the sign-flipped set also
+lies in the allowed range \(\{-5,\dots,6\}\). Writing \(K\sim -K\), the realizable families collapse
+to the following 9 equivalence classes:
+\begin{itemize}[leftmargin=2em]
+  \item \(\{-5,-4,-3,0\}\ \sim\ \{0,3,4,5\}\) \hfill (pair)
+  \item \(\{-5,0,1,4\}\ \sim\ \{-4,-1,0,5\}\) \hfill (pair)
+  \item \(\{-5,0,2,3\}\ \sim\ \{-3,-2,0,5\}\) \hfill (pair)
+  \item \(\{-4,0,1,3\}\ \sim\ \{-3,-1,0,4\}\) \hfill (pair)
+  \item \(\{-3,0,1,2\}\ \sim\ \{-2,-1,0,3\}\) \hfill (pair)
+  \item \(\{-5,-1,0,6\}\) \hfill (singleton; sign-flip involves \(-6\))
+  \item \(\{-4,-2,0,6\}\) \hfill (singleton; sign-flip involves \(-6\))
+  \item \(\{0,1,5,6\}\) \hfill (singleton; sign-flip involves \(-6\))
+  \item \(\{0,2,4,6\}\) \hfill (singleton; sign-flip involves \(-6\))
+\end{itemize}
+These 9 are the terminal representatives modulo: (i) dihedral permutations on each square,
+(ii) the octahedral realizability constraint, and (iii) global sign reversal whenever valid.
+
+\section*{Appendix A: A compact construction for the octahedron}
+Given any \(K=\{0,x,y,z\}\) with \(x+y+z\equiv0\pmod{12}\) in the allowed range, the cyclic-shift
+pattern
+\[
+\mathrm{XY}=[0,x,y,z],\quad
+\mathrm{YZ}=[0,y,z,x],\quad
+\mathrm{ZX}=[0,z,x,y]
+\]
+makes every triangular face sum to \(0\pmod{12}\). Reversing one row produces alternative
+column-sum distributions \((n_{-12},n_0,n_{12})\) while keeping all faces closed.
+
+\section*{References}
+\begin{enumerate}[label={[\arabic*]}]
+  \item F.\ W.\ Han, \emph{Quantization of Link Phase in the FCC Lattice from Pure Geometric Topology}, Oct.\ 2025. (Derives the \(\pi/6\) unit from a \(\mathbb{Z}/12\mathbb{Z}\) torsion in the FCC 2--complex.) 
+  \item F.\ W.\ Han, \emph{Counting Distinct Plaquette Phase Configurations under Dihedral Symmetry}, Oct.\ 2025. (Burnside/dihedral reduction for a square plaquette.)
+\end{enumerate}
+
+\end{document}

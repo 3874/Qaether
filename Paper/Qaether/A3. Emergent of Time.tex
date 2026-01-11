@@ -1,0 +1,238 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, bm}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{A3. Emergence of Time: Link $\cdot$ Loop Consistency}
+\author{Francis Han}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We develop a mathematically consistent framework in which time emerges not as
+a background parameter but as a gauge--invariant functional of local activity in
+an SU(2) lattice gauge geometry. Two complementary layers are introduced:
+link--based proper time derived from plaquette--averaged holonomy, and
+loop--based proper time depending only on the conjugation--invariant holonomy
+angle of closed contours. The Loop--Equivalence Axiom (ELT) is imposed,
+requiring that any two simple loops with identical holonomy angle exhibit the
+same proper--time, independent of shape or length. All definitions, domain
+conditions, and regularity constraints ensuring full mathematical consistency
+are stated explicitly. The continuum limit yields a dependence on 
+$F_{\mu\nu}F^{\mu\nu}$, and a structural correspondence with Jacobi--type
+path--integral lapses is shown. Coordinate time (graph synchronisation) and
+physical dilation (gauge--invariant activity) become sharply distinguished,
+forming a coherent emergent--time mechanism.
+\end{abstract}
+
+\section{Principle: Time as Emergent Activity}
+
+Time is treated as an emergent quantity determined by local activity.  
+For any object (cell, link, loop) with activity--rate $\beta\in(-1,1)$,
+\[
+\gamma^{-1}=\sqrt{1-\beta^2},
+\]
+and with $\beta=\tanh(\cdots)$ we guarantee $|\beta|<1$, yielding
+\[
+d\tau = t_p\sqrt{1-\beta^2},\qquad 0<d\tau\le t_p.
+\]
+
+\section{Links and Loops: Gauge--Invariant Geometry}
+
+\paragraph{Links.} 
+An oriented link $e=(i\to i+\hat\mu)$ carries
+\[
+U_\mu(i)=\mathbf q_{i+\hat\mu}\mathbf q_i^{-1}\in SU(2),
+\qquad 
+U_\mu(i)\mapsto g_{i+\hat\mu}U_\mu(i)g_i^{-1}.
+\]
+
+\paragraph{Loops.}
+For a closed contour $C$,
+\[
+W(C)=\prod_{e\in C}U_e,
+\qquad 
+W(C)\mapsto g_{i_0}W(C)g_{i_0}^{-1}.
+\]
+Define
+\[
+\Theta_C=\arccos\!\Bigl(\tfrac12\mathrm{Tr}\,W(C)\Bigr)\in[0,\pi].
+\]
+
+\paragraph{Plaquettes.}
+Minimal loops satisfy
+\[
+U_\square=W(C_\square),
+\qquad \Theta_\square=\Theta_{C_\square}.
+\]
+
+\section{Two Levels of Activity: Link vs.\ Loop}
+
+\subsection{Link--based Activity}
+
+Let $\mathcal P(e)$ be the set of plaquettes containing $e$.  
+Assume 
+\[
+\omega_\square>0,\qquad 
+\sum_{\square\ni e}\omega_\square>0.
+\]
+Define
+\[
+\Theta_e^{\rm(GI)}
+=
+\left(
+\frac{
+\sum_{\square\ni e}\omega_\square\,\Theta_\square^2
+}{
+\sum_{\square\ni e}\omega_\square
+}
+\right)^{1/2},
+\qquad 
+\Theta_\square=\arccos(\tfrac12\mathrm{Tr}\,U_\square).
+\]
+Boundary links with $\mathcal P(e)=\varnothing$ take $\Theta_{e}^{\rm(GI)}=0$.
+
+The activity and proper time are
+\[
+\beta_e=\tanh\!\Bigl(\kappa_1\tfrac{\Theta_e^{\rm(GI)}}{\pi}\Bigr),
+\qquad 
+d\tau_e=t_p\sqrt{1-\beta_e^2}.
+\]
+
+\subsection{Loop--based Activity}
+
+For a closed loop $C$,
+\[
+\beta_C=\tanh\!\Bigl(\kappa_{\rm loop}\tfrac{\Theta_C}{\pi}\Bigr),
+\qquad \kappa_{\rm loop}=\text{const},
+\]
+so the loop proper--time is
+\[
+T_{\rm loop}(C)=t_p\sqrt{1-\beta_C^2}.
+\]
+
+\section{Loop--Equivalence Axiom (ELT)}
+
+\[
+\boxed{
+\Theta_{C_1}=\Theta_{C_2}
+\;\Longrightarrow\;
+T_{\rm loop}(C_1)=T_{\rm loop}(C_2)
+}
+\]
+Since $T_{\rm loop}$ depends only on $\Theta_C$ and 
+$\kappa_{\rm loop}$ is loop--independent, the axiom holds.
+
+\section{Coordinate Time vs.\ Proper Time}
+
+For a worldline $\gamma$,
+\[
+\tau[\gamma]
+=
+\sum_{e\in\gamma} t_p\sqrt{1-\beta_e^2},
+\qquad 
+\beta_e=\tanh\!\Bigl(\kappa_1\tfrac{\Theta_{e}^{\rm(GI)}}{\pi}\Bigr).
+\]
+This differs from the intrinsic $T_{\rm loop}(C)$ of loop objects.
+
+\section{Cell and Block Effective Proper Time}
+
+\[
+\mathcal A_i^2
+=
+c_F\Bigl(\tfrac{\|\mathcal F_i\|}{\Omega_F}\Bigr)^2
++
+c_R\Bigl(\tfrac{\|F_\star(i)\|}{\Omega_R}\Bigr)^2
++
+c_\Omega\Bigl(\tfrac{\|\nabla\mathbf q_i\|}{\Omega_\Omega}\Bigr)^2,
+\qquad 
+\beta_i=\tanh(\kappa\mathcal A_i),
+\]
+\[
+d\tau_i=t_p\sqrt{1-\beta_i^2}.
+\]
+
+Define the pressure weight
+\[
+P_i=p_0(1-\alpha m_i)F_\star(i),
+\qquad 
+F_\star(i)\ge0,\quad 0\le\alpha m_i<1.
+\]
+For a block $B$,
+\[
+\Delta T_{\rm eff}(B)
+=
+\frac{\sum_{i\in B}P_i\,d\tau_i}{\sum_{i\in B}P_i},
+\qquad 
+\sum_{i\in B}P_i>0.
+\]
+
+\section{Local YM Coupling}
+
+\[
+\mathcal L_{\rm YM}(i)
+=
+\frac{1}{2 g_{\rm eff}^2(i)}\mathrm{Tr}[\mathcal F_{\mu\nu}(i)\mathcal F^{\mu\nu}(i)],
+\]
+\[
+\frac{1}{g_{\rm eff}^2(i)}
+=
+\frac{1}{g_0^2}
++
+\tilde\lambda(1-\alpha m_i)\,F_\star(i).
+\]
+
+\section{Branch Continuity}
+
+The SU(2) logarithm uses the principal branch $|\theta|\le\pi$, with nearest--branch 
+tracking to avoid $2\pi$ jumps.
+
+\section{Continuum Limit}
+
+\[
+U_\square=\exp(ia^2F_{\mu\nu}+O(a^3)),
+\qquad 
+\Theta_\square\simeq a^2\|F_{\mu\nu}\|.
+\]
+Thus
+\[
+T_{\rm loop}(C)
+\simeq
+t_p\!\left[
+1-\tfrac12\left(\kappa_{\rm loop}\tfrac{\Theta_C}{\pi}\right)^2
+\right],
+\]
+consistent with a dependence on $F_{\mu\nu}F^{\mu\nu}$.
+
+\section{Relation to Path--Integral Lapses}
+
+\[
+S_J[\gamma]
+=
+\int d\lambda\,
+\sqrt{2(E_{\rm tot}-U_{\rm eff})}\,
+\sqrt{\tfrac{ds_{\rm conf}^2}{d\lambda^2}},
+\]
+\[
+d\tau_{\rm eff}
+=
+\frac{1}{\sqrt2}\,
+\frac{\sqrt{ds_{\rm conf}^2}}{\sqrt{E_{\rm tot}-U_{\rm eff}}}.
+\]
+If $ds_{\rm conf}^2$ and $U_{\rm eff}$ depend only on the angle $\Theta$,
+then $d\tau_{\rm eff}=f(\Theta)$, the same class of gauge--invariant scalar
+lapse functions as
+\[
+d\tau=t_p\sqrt{1-\beta^2(\Theta)}.
+\]
+
+\section{Summary}
+
+Time along links is synchronised by $t_p$,
+while physical dilation is determined by gauge--invariant loop/cell activity.
+Loops with identical holonomy angle $\Theta$ share identical proper--time,
+independent of shape.
+
+\end{document}

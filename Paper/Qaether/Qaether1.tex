@@ -1,0 +1,233 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsthm,graphicx,bm}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{physics}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage{mathtools}
+
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{0.5em}{}
+
+\title{\textbf{Spin, Electric Charge, and Color Charge on the FCC Lattice: \\ 
+A Lattice Realization of the SU(2)--U(1)--SU(3) Gauge Hierarchy}}
+\author{Francis W. Han \\ \small Ylem Invest}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We present a unified lattice framework in which spin, electric charge, and color charge emerge from the topology of the face--centered cubic (FCC) lattice.
+The coexistence of triangular and square minimal loops in the FCC skeleton provides the minimal structure supporting both SO(3) parity and U(1) phase.
+A quaternionic SU(2) field at each site encodes spin orientation and local phase; its internal U(1) projection produces quantized electric charge in units of $e/6$.
+On the same lattice, combinatorial classes of plaquette phase quadruples under the dihedral group $D_4$ define color charge as SU(3) weight--type invariants.
+The $\mathbb{Z}_{12}$ torsion of the FCC 2--skeleton fixes the common quantization scale $\pi/6$, ensuring coherence among spin, charge, and color.
+Baryon and meson color neutrality follow naturally from the closure rules of octahedral cells.
+\end{abstract}
+
+\section{Geometric Background}
+
+\textbf{FCC Lattice and 2--Skeleton.}
+Let $G=(V,E)$ be the nearest--neighbor graph of the face--centered cubic lattice.
+We attach triangular and square minimal loops as 2--cells, forming the 2--skeleton
+\[
+C_2=\mathbb{Z}^F,\qquad C_1=\mathbb{Z}^E,\qquad \partial_2:C_2\to C_1.
+\]
+For each edge $e\in E$ assign a phase $\phi_e\in\mathbb{R}/2\pi\mathbb{Z}$.
+If $\Phi(\partial_2 f)=0$ for all minimal faces $f$, then $\Phi\in Z^1(X;\mathbb{R}/2\pi\mathbb{Z})$.
+
+\textbf{Lattice Torsion.}
+From the Smith normal form of the boundary matrix $\partial_2$, one obtains a local torsion element of order $12$ in
+\[
+A:=C_1/\mathrm{im}\,\partial_2,
+\]
+implying
+\[
+\phi_e\in \frac{2\pi}{12}\mathbb{Z}\equiv\frac{\pi}{6}\mathbb{Z}\pmod{2\pi}.
+\]
+Hence both electric and color charges will share the same quantization scale $\pi/6$.
+
+\section{Spin: Quaternionic SU(2) Field}
+
+At each site $i\in V$, define
+\[
+q_i=e^{i\phi_i\hat n_i\cdot\vec\sigma}
+   =\cos\frac{\phi_i}{2}+i\sin\frac{\phi_i}{2}\,\hat n_i\cdot\vec\sigma
+   \in SU(2),
+\]
+with local axis $\hat n_i$ and phase $\phi_i$.
+
+\subsection{Link and Wilson Loops}
+
+\[
+U_{ij}=q_i q_j^{-1}\in SU(2),\qquad
+W(\ell)=\prod_{(ij)\in\ell}U_{ij}.
+\]
+For minimal loops, $W(\ell)\in\{\pm1\}=Z(SU(2))$, recording the even/odd winding of spin-$1/2$.
+Mapping to $SO(3)$ identifies $\pm1$, giving a \textit{projectively flat} configuration.
+
+\subsection{Octahedral Bianchi Constraint}
+For every octahedral cell $\mathcal{O}$,
+\[
+\prod_{p\subset\partial\mathcal{O}}W(p)=+1,
+\]
+which forbids monopole--like defects and allows only even central flux.
+
+\section{Electric Charge: U(1) Phase Projection}
+
+\subsection{t’Hooft-Type Abelian Projection}
+Given a local axis $m_i$, define
+\[
+u_{ij}=
+\frac{\mathrm{Tr}\!\left(\frac{1+m_i\cdot\sigma}{2}\,U_{ij}\right)}
+{ \big|\mathrm{Tr}\!\left(\frac{1+m_i\cdot\sigma}{2}\,U_{ij}\right)\big|}
+=e^{i a_{ij}},
+\qquad a_{ij}\in\mathbb{R}/2\pi\mathbb{Z}.
+\]
+The loop sum satisfies $\sum_{(ij)\in\ell}a_{ij}=2\pi n$.
+
+\subsection{Charge Quantization}
+Due to $\mathbb{Z}_{12}$ torsion, $a_{ij}\in(\pi/6)\mathbb{Z}$.
+Hence each tetrahedral (``quark cell'') closure quantizes electric charge in units of $e/6$:
+\[
+Q_i=\frac{e}{6}s_i,\qquad 
+s_i=\mathrm{sign}\Big(\mathrm{Tr}\big[q_i(\hat n_p\cdot\vec\sigma)q_i^{-1}(\hat m_p\cdot\vec\sigma)\big]\Big),
+\]
+\[
+Q(\mathcal{T})=\frac{e}{6}\sum_{i\in\mathcal{T}}s_i
+ \in\{-\tfrac{2}{3},-\tfrac{1}{3},0,\tfrac{1}{3},\tfrac{2}{3}\}e.
+\]
+
+\section{Color Charge: Dihedral Class and SU(3) Embedding}
+
+\subsection{Plaquette Phase Quadruples}
+
+For a square plaquette, let 
+\[
+(a,b,c,d)\in((\pi/6)\mathbb{Z}/2\pi\mathbb{Z})^4,\qquad 
+a+b+c+d\equiv0\ (\text{mod }2\pi).
+\]
+Write integer form $k_i=(6/\pi)a_i\in\mathbb{Z}_{12}$ with
+$k_1+k_2+k_3+k_4\equiv0$ (mod 12).
+
+\subsection{Cyclic Words and $D_4$ Action}
+
+Define the cyclic word space
+\[
+\mathcal{W}=\bigl\{[k_1,k_2,k_3,k_4]\mid k_i\in\mathbb{Z}_{12},\
+\sum k_i\equiv0\bigr\}/\text{(cyclic shift)}.
+\]
+The square dihedral group $D_4$ acts on $\mathcal{W}$ by rotation and reflection.
+
+\textbf{Quark--Plaquette Assumption:}
+Only plaquettes with all four $k_i$ distinct are admissible (degenerate sets are colorless).
+
+\textbf{Theorem.}
+For distinct $k_i$, the number of orbits under $D_4$ is $3$.
+By Burnside’s lemma, since nontrivial elements fix no configurations,
+$|\mathcal{W}/D_4|=\frac{1}{8}\times24=3$.
+
+\subsection{Color Charge Function}
+Define
+\[
+\kappa:\ \mathcal{W}_{\mathrm{adm}}/D_4 \longrightarrow
+   \{\pm r,\pm g,\pm b,0\},
+\]
+assigning the three orbits $\mathcal{O}_1,\mathcal{O}_2,\mathcal{O}_3$
+to $\{r,g,b\}$ by convention.
+Orientation reversal $\iota:[k_1,k_2,k_3,k_4]\mapsto[k_1,k_4,k_3,k_2]$
+acts as
+$\kappa(\iota[w])=-\kappa([w])$ (anticolor).
+If $k_i$ are not distinct, $\kappa=0$.
+
+\subsection{Closure Sector and Admissible Sets}
+Within the modular-12 closure sector
+($k_1+k_2+k_3+k_4\equiv0$),
+the representative integer quadruples ($k_i\in\{-5,\ldots,6\}$) number $42$.
+Imposing 3D octahedral consistency requires $0\in K=\{0,x,y,z\}$,
+leaving $14$ equivalence classes after symmetries are factored out.
+
+\subsection{SU(3) Static Embedding}
+Associate $\{r,g,b\}$ with the fundamental weights $\{\omega_1,\omega_2,\omega_3\}$:
+\[
+\omega_1+\omega_2+\omega_3=0,\qquad
+\alpha_1=\omega_1-\omega_2,\ \alpha_2=\omega_2-\omega_3,\ \alpha_3=\alpha_1+\alpha_2.
+\]
+Orientation reversal corresponds to $(t_3,t_8)\mapsto-(t_3,t_8)$ or $\omega\mapsto-\omega$.
+When the $14$ admissible $(a,b,c)$ triples are projected onto the Cartan plane $(T_3,T_8)$,
+their coordinates lie precisely on integer lattice points in the $(\omega_1,\omega_2)$ basis.
+
+\section{Binding Rules and 3D Consistency}
+
+\subsection{Meson}
+A plaquette and its reverse orientation combine as
+\[
+\omega + (-\omega)=0,
+\]
+implying color neutrality.
+
+\subsection{Baryon (Octahedral Closure)}
+For three mutually orthogonal plaquettes (in $XY,YZ,ZX$ planes)
+sharing edges to close an octahedron, the closure condition is
+\[
+K=\{0,x,y,z\},\qquad x+y+z\equiv0\pmod{12}.
+\]
+Arranged as
+\[
+XY:[0,x,y,z],\quad YZ:[0,y,z,x],\quad ZX:[0,z,x,y],
+\]
+all eight triangular faces close simultaneously.
+When the three plaquette colors differ,
+\[
+\omega_1+\omega_2+\omega_3=0,
+\]
+forming a color singlet baryon.
+
+\section{Global Topological Sectors}
+On a 3-torus with noncontractible loops $C_x,C_y,C_z$,
+\[
+W_x,W_y,W_z\in\{\pm1\},\qquad
+\mathcal{H}_{\mathrm{global}}\cong H^2(T^3,\mathbb{Z}_2)\cong\mathbb{Z}_2^3.
+\]
+These global $Z_2$ choices fix the background spin parity sector.
+
+\section{Hierarchical Summary}
+\begin{center}
+\begin{tabular}{llll}
+\hline
+Level & Geometry & Gauge Group & Observable \\
+\hline
+Spin & triangular/square loops & $SU(2)$ (center $Z_2$) & $W(\ell)=\pm1$ \\
+Charge & internal phase (Hopf fiber) & $U(1)$ & $a_{ij}\in(\pi/6)\mathbb{Z}$, $e/6$ \\
+Color & plaquette cyclic orbit & $SU(3)$ (Cartan $T^2$) & $\kappa\in\{\pm r,\pm g,\pm b,0\}$ \\
+Consistency & octahedral closure & $Z_2$ Bianchi & even flux, 14 reps \\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Logical Cohesion}
+\begin{enumerate}
+\item Common quantum unit: $\pi/6$ for both charge and color.
+\item Common antisymmetry: spin parity ($Z_2$) $\leftrightarrow$ color reversal (order 2).
+\item Common closure rule: $\sum k_i\equiv0$ (mod 12) governs charge loops and color plaquettes alike.
+\item Observables are not traces but combinatorial orbit invariants—topological markers of degenerate sectors.
+\end{enumerate}
+
+\section{Physical Interpretation}
+\begin{itemize}
+\item Fractional charges are pinned by lattice $\mathbb{Z}_{12}$ torsion, stabilized by the $Z_2$ Bianchi constraint.
+\item Color degrees of freedom survive as combinatorial invariants $\kappa$ within degenerate energy layers.
+\item Meson and baryon color neutrality arise geometrically from plaquette and octahedral closure.
+\item Global $Z_2^3$ sectors may act as parity backgrounds controlling defect condensation.
+\end{itemize}
+
+\section{Conclusion}
+The FCC lattice provides a natural discrete arena where the SU(2) spin layer, its internal U(1) phase, and the combinatorial SU(3) color structure share a single quantization scale and closure rule.
+Spin is \textit{projectively flat}, charge arises from the internal U(1) projection, and color emerges from the $D_4$ cyclic orbits of $\mathbb{Z}_{12}$ plaquette phases.
+Baryon and meson neutrality follow from the same modular--12 closure.
+Thus, fractional charge and color confinement appear as geometric consequences of FCC lattice topology.
+
+\end{document}

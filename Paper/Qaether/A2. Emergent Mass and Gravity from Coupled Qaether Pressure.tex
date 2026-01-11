@@ -1,0 +1,181 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsfonts, bm}
+\usepackage{graphicx}
+\usepackage{physics}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\begin{document}
+
+\section*{A2. Emergence of Mass and Gravity: The Coupled Pressure Model}
+
+\subsection*{1. Cell Surface Variables}
+\begin{itemize}
+  \item Total reflective boundary area: 
+  \[
+    \mathfrak{A}_s \approx \pi l_p^2
+  \]
+  (the external reflective surface of a single Qaether cell).
+
+  \item Area blocked per bond:
+  \[
+    \mathfrak{A}_b \ll \mathfrak{A}_s 
+    \quad \Longrightarrow \quad 
+    \alpha \equiv \frac{\mathfrak{A}_b}{\mathfrak{A}_s} \ll 1
+  \]
+\end{itemize}
+
+\subsection*{2. Remaining Reflective Area}
+For a cell \( i \) with \( m_i \) bonds,
+\[
+\mathfrak{A}_i(m_i) 
+= \mathfrak{A}_s - m_i \mathfrak{A}_b 
+= (1 - \alpha m_i)\,\mathfrak{A}_s.
+\]
+Even for the FCC lattice maximum \( m_i = 12 \), we have \( \alpha m_i \ll 1 \), thus \( \mathfrak{A}_i > 0 \).
+
+\subsection*{3. Amplitude Coefficient \( F_\star \): Gauge-Invariant (Plaquette-Based)}
+The sum below is taken over all minimal plaquettes sharing site \( i \) (the smallest loops such as squares or triangles on the FCC lattice):
+\[
+\boxed{
+F_\star(i) \equiv 
+\frac{
+  \sum_{\square \ni i} 
+  \omega_\square 
+  \bigl(1 - \tfrac{1}{2}\mathrm{Re\,Tr}\,U_\square\bigr)
+}{
+  \sum_{\square \ni i} 
+  \omega_\square
+}}.
+\]
+This definition represents a local average of the standard Wilson density 
+\((1 - \tfrac{1}{2}\mathrm{Re\,Tr}\,U_\square)\), hence is gauge invariant.
+
+For small angles,
+\[
+U_\square \simeq e^{i\Theta_\square},
+\qquad 
+\tfrac{1}{2}\mathrm{ReTr}\,U_\square \simeq 1 - \tfrac{1}{2}\|\Theta_\square\|^2,
+\]
+which gives
+\[
+\boxed{
+F_\star(i) \simeq 
+\frac{1}{2N_i}\sum_{\square\ni i}\|\Theta_\square\|^2
+\;\propto\;
+\text{(local curvature intensity average)}.
+}
+\]
+
+\subsection*{4. Internal Phase Oscillation Energy of Qaether Cell \( i \)}
+Assume the Qaether wavelength equals the Planck length \( l_p \).  
+The corresponding angular frequency is
+\[
+\omega_q = \frac{2\pi c}{l_p},
+\]
+and the internal phase oscillation energy is
+\[
+E_q = \tfrac{1}{2}\hbar \omega_q = \hbar \frac{\pi c}{l_p}.
+\]
+Then the phase energy density is
+\[
+u_\phi = \frac{E_q}{V_s}
+= \frac{\tfrac{1}{2}\hbar \omega_q}{\tfrac{1}{6}\pi l_p^3}
+= \frac{6\hbar c}{l_p^4}.
+\]
+
+\subsection*{5. Reference Pressure \( p_0 \)}
+Define the pressure corresponding to 100\% reflection per unit area:
+\[
+p_0 = 2u_\phi = \frac{12\hbar c}{l_p^4}.
+\]
+The blocked region (\( m_i \mathfrak{A}_b \)) receives no phase-wave impact, hence zero pressure.
+
+\subsection*{6. Local Effective Pressure}
+With effective boundary thickness \( \delta = \eta l_p \) (\( \eta \sim \mathcal{O}(1) \); limit \( \eta \to 0 \) if needed):
+\[
+\boxed{
+P_i(m_i)
+= p_0 \frac{\mathfrak{A}_i(m_i)}{\mathfrak{A}_s} F_\star(i)
+= p_0 (1 - \alpha m_i) F_\star(i).
+}
+\]
+
+\subsection*{7. Pressure–Energy Mapping and Mass (Background Difference Definition)}
+Stored energy:
+\[
+U_{\text{press}}(i) = P_i \mathfrak{A}_s \delta 
+= p_0 \mathfrak{A}_s \eta l_p (1 - \alpha m_i) F_\star(i).
+\]
+Relative to the uniform (unobservable) vacuum background:
+\[
+\boxed{
+\Delta U_{\text{press}}(i)
+= - \alpha m_i p_0 \mathfrak{A}_s \eta l_p F_\star(i)
+= - \alpha m_i \eta 12\pi \frac{\hbar c}{l_p} F_\star(i)
+= - \alpha m_i \eta 12\pi E_{\mathrm{Pl}} F_\star(i),
+}
+\]
+where \( E_{\mathrm{Pl}} = \hbar c / l_p \).
+
+Binding energy per bond (uniform per-cell reference):
+\[
+\boxed{
+\Delta U_{\text{bond}}^{(\mathrm{per\ cell})}
+= - \alpha \eta 12\pi E_{\mathrm{Pl}} F_\star(i).
+}
+\]
+
+Thus the effective inertial (rest) mass of a cell:
+\[
+\boxed{
+m_{\mathrm{eff}}(i)
+= \frac{E_q + U_{\text{link}}(i) + \Delta U_{\text{press}}(i)}{c^2},
+}
+\]
+where \( U_{\text{link}} \) represents link/plaquette contributions such as \( W_{ij}(\Delta\phi_{ij}) \).
+Since \( \Delta U_{\text{press}} < 0 \Rightarrow \) increasing bonds (\( m_i \uparrow \)) reduces rest energy (inertial mass) $\Rightarrow$ stronger binding.
+
+\subsection*{8. Stress–Energy Tensor (Apparent Fluid Approximation: Isotropic + Anisotropic Corrections)}
+Isotropic approximation:
+\[
+T^{00}_i \approx u_\phi (1 - \alpha m_i) F_\star(i), 
+\qquad
+T^{aa}_i \approx p_0 (1 - \alpha m_i) F_\star(i)
+\quad (a = 1,2,3).
+\]
+Anisotropic correction (bond patch normal \( \hat{\mathbf{n}}_e \)):
+\[
+\Delta T^{ab}_i \approx - p_0 F_\star(i)
+\sum_{e \in \mathcal{N}(i)} \alpha n_e^a n_e^b.
+\]
+If the bond directions are random/uniform:
+\[
+\sum_e \alpha n_e^a n_e^b 
+\simeq \tfrac{\alpha m_i}{3}\delta^{ab}.
+\]
+
+\subsection*{9. Local Moment of Inertia}
+Assume the cell’s internal energy is distributed over a sphere of radius \( r = l_p/2 \):
+\[
+E_q = \frac{\pi \hbar c}{l_p}, 
+\qquad
+m_q = \frac{E_q}{c^2} = \frac{\pi \hbar}{c l_p}, 
+\qquad
+r_q = \frac{l_p}{2}.
+\]
+Then the moment of inertia for a uniform solid sphere:
+\[
+I_i = \frac{2}{5} m_q r_q^2 
+= \frac{2}{5} 
+\left(\frac{\pi \hbar}{c l_p}\right)
+\left(\frac{l_p}{2}\right)^2.
+\]
+Simplified:
+\[
+\boxed{
+I_i = \frac{\pi}{10}\frac{\hbar l_p}{c}.
+}
+\]
+
+\end{document}

@@ -1,0 +1,143 @@
+<script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], } };</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<p data-ke-size="size16">(색전하&middot;스핀&middot;가둠&middot;정상파 동역학의 통합 모델) <span style="color: #ee2323;"><b>수정중</b></span>
+</p>
+<h2 data-ke-size="size26">0. 핵심 요약 및 목표</h2>
+<p data-ke-size="size16">본 프레임워크는 FCC 접촉 네트워크 위에서 다음을 물리적으로 구현한다.</p>
+<ol style="list-style-type: decimal;" data-ke-list-type="decimal">
+    <li>물질(Matter)의 정의: 물질의 기본형은 동역학이 선택하는 저에너지 무플럭스(Flat) 섹터로 정의한다.</li>
+    <li>색(Color)과 가둠(Confinement): $\mathbb{Z}_{12}$ 링크 위상의 기하학적 궤도 구조(3색)와 3D 폐합 가능성으로 설명되며 기하학적 3D 폐합 제약으로 가둠을 설명한다.
+        즉, 기하학적으로 닫히지 않는 구조는 존재할 수 없다.</li>
+    <li>스핀(Spin): $SU(2)$ 프레임 층의 중심 원소($\pm \mathbb{I}$) 홀로노미로 정의되며, $U(1)$의 $\mathbb{Z}_{12}$와는 분리된 자유도이다.</li>
+    <li>바리온(Baryon): 3색으로 규정된 3개의 사각 플라켓이 서로에게 직교 결합하여 정팔면체를 이룰 때, 8개의 삼각 플라켓이 정팔면체 위에 발생하며 8개 삼각 플라켓이 위상적으로 자동
+        정합($Q_\triangle=0$)되는 구조로 정의된다.</li>
+</ol>
+<h2 data-ke-size="size26">&nbsp;</h2>
+<h2 data-ke-size="size26">1. 배경: 기하학적 구조</h2>
+<h3 data-ke-size="size23">공리 1.1 (공간 복합체)</h3>
+<p data-ke-size="size16">공간은 2-복합체 $X=(V, E, P)$로 정의된다.</p>
+<ul style="list-style-type: disc;" data-ke-list-type="disc">
+    <li>$V$: 사이트 (0-셀)</li>
+    <li>$E$: 유향 링크 (1-셀). $i\to j$와 $j\to i$는 방향만 반대인 같은 접촉이다.</li>
+    <li>$P = P_4 \cup P_3$:
+        <ul style="list-style-type: disc;" data-ke-list-type="disc">
+            <li>$P_4$: 사각 플라켓 (정팔면체를 바리온으로 가정하고 사각 플라켓은 쿼크류로 정의하며 입자 기초 단위로 정의한다.)</li>
+            <li>$P_3$: 삼각 플라켓 (정사면체를 글루온으로 가정하고 삼각 플라켓은 글루온의 기초 단위로 정의한다.)</li>
+            <li>이 플라켓들은 각각 최소길이 4와 3으로 정의된다.</li>
+        </ul>
+    </li>
+</ul>
+<h2 data-ke-size="size26">&nbsp;</h2>
+<h2 data-ke-size="size26">2. Layer 1 &mdash; Color/U(1): $\mathbb{Z}_{12}$ 링크 위상 (물질 자유도)</h2>
+<h3 data-ke-size="size23">공리 2.1 (링크 위상 양자화)</h3>
+<p data-ke-size="size16">각 유향 링크 $e=(i\to j)$에 대해 이산 물리 변수 $k$를 할당한다.<br />$$<br />\boxed{k_{ij} \in \mathbb{Z}_{12}},
+    \qquad k_{ji} \equiv -k_{ij} \pmod{12}<br />$$<br />(연속 위상차: $\Delta\phi_{ij} = \frac{\pi}{6}k_{ij}$)</p>
+<h3 data-ke-size="size23">정의 2.2 (면 플럭스: 곡률)</h3>
+<p data-ke-size="size16">임의의 플라켓 $f \in P$ ($P_4$ 또는 $P_3$)에 대해, 경계를 따르는 위상 합(Flux)을 정의한다.<br />$$<br />\boxed{Q_f(k) :=
+    \sum_{e \in \partial f} \text{sgn}(f, e) k_e \pmod{12}}<br />$$<br />여기서 $\text{sgn}(f,e)$는 플라켓 순회 방향과 링크 방향의 일치
+    여부($\pm 1$)이다.</p>
+<h2 data-ke-size="size26">&nbsp;</h2>
+<h2 data-ke-size="size26">3. 물질(정상파) 섹터: 동역학적 안정성</h2>
+<h3 data-ke-size="size23">공리 3.1 (물질 조건)</h3>
+<p data-ke-size="size16">모든 가능한 사각 패턴 중, 경계 위상 합이 사라지는 경우만 "안정한 물질"로 간주한다.<br />$$<br />\boxed{\mathcal{W} := { w \in
+    (\mathbb{Z}_{12})^4 \mid Q(w) \equiv 0 \pmod{12} }}<br />$$</p>
+<h3 data-ke-size="size23">해석 3.2 (정상파 의미)</h3>
+<ul style="list-style-type: disc;" data-ke-list-type="disc">
+    <li>$Q_p = 0$: 파동이 루프를 돌고 제자리로 왔을 때 위상차 없이 정상파(Standing Wave)를 형성함.</li>
+    <li>$Q_p \neq 0$: 위상 결함(Defect) 또는 소용돌이(Vortex). 이는 에너지가 높은 들뜬 상태로, 동역학적으로 억제되거나 이동만 가능하다.</li>
+</ul>
+<h2 data-ke-size="size26">&nbsp;</h2>
+<h2 data-ke-size="size26">4. 색/반색: 회전과 반입자의 분리</h2>
+<h3 data-ke-size="size23">정의 4.1 (사각 패턴과 회전 동치)</h3>
+<p data-ke-size="size16">사각 플라켓의 패턴 $w = [a,b,c,d]$에 대해, 시작점을 바꾸는 순환 이동(Rotation)은 물리적으로 동일한
+    상태이다.<br />$$<br />\rho([a,b,c,d]) = [b,c,d,a], \qquad C_4 = \langle \rho \rangle<br />$$</p>
+<h3 data-ke-size="size23">정의 4.2 (반입자 연산 $\mathcal{A}$)</h3>
+<p data-ke-size="size16">반입자는 공간적 반전(거울상)과 전하(링크 부호) 반전이 결합된 상태이다.<br />$$<br />\boxed{\mathcal{A}(w) := [-d, -c, -b,
+    -a] = C(\mathrm{rev}(w))}<br />$$<br />즉, 순서를 뒤집고($\mathrm{rev}$) 부호를 반전($C$)한다. 이는 회전 동치와 구별되는 다른 물리 상태이다.</p>
+<h2 data-ke-size="size26">&nbsp;</h2>
+<h2 data-ke-size="size26">5. 3색/3반색의 유도 (Admissible Quarks)</h2>
+<h3 data-ke-size="size23">정의 5.1 (쿼크형 패턴)</h3>
+<p data-ke-size="size16">링크 값 4개가 모두 서로 다른 패턴을 쿼크형(Admissible)이라 한다.<br />$$<br />\mathcal{W}_{\mathrm{adm}} := \{
+    [a,b,c,d] \in \mathcal{W} \mid a,b,c,d \text{ distinct} \}<br />$$</p>
+<h3 data-ke-size="size23">정리 5.2 (카운팅: 3색의 출현)</h3>
+<p data-ke-size="size16">서로 다른 4개 숫자의 순열 24개에 대해:</p>
+<ol style="list-style-type: decimal;" data-ke-list-type="decimal">
+    <li>회전($C_4$) 동치: $24 \div 4 = 6$개의 궤도.</li>
+    <li>반입자($\mathcal{A}$) 쌍: 6개 궤도는 서로 $\mathcal{A}$ 연산으로 짝지어지는 3쌍으로 분류됨.<br />$$<br />\boxed{24 \xrightarrow{C_4} 6
+        \xrightarrow{\mathcal{A}} 3 \text{ (Colors)}}<br />$$<br />따라서 색전하 $\kappa$는 $\{r, g, b\}$ 3종류이며, 반입자는 자동적으로 반색
+        $\{\bar{r}, \bar{g}, \bar{b}\}$를 갖는다.</li>
+</ol>
+<h2 data-ke-size="size26">&nbsp;</h2>
+<h2 data-ke-size="size26">6. Layer 2 &mdash; Spin/SU(2): $U(1)$과 분리된 스핀</h2>
+<h3 data-ke-size="size23">공리 6.1 (프레임과 연결)</h3>
+<ul style="list-style-type: disc;" data-ke-list-type="disc">
+    <li>사이트: $q_i \in SU(2)$</li>
+    <li>링크: $h_{ij} \in SU(2)$</li>
+    <li>관측 불변 링크: $V_{ij} := q_i^{-1} h_{ij} q_j$</li>
+</ul>
+<h3 data-ke-size="size23">정의 6.2 (스핀의 정의)</h3>
+<p data-ke-size="size16">플라켓의 $SU(2)$ 홀로노미 $W_p = \prod V_{ab}$에 대해, 스핀은 중심 원소($\pm \mathbb{I}$) 여부로
+    결정된다.<br />$$<br />\boxed{s_p := \begin{cases} 0 &amp; (W_p = +\mathbb{I}) \\ 1/2 &amp; (W_p = -\mathbb{I})
+    \end{cases}}<br />$$<br />즉, $U(1)$ 위상 권수($m_p$)와 무관하게, $SU(2)$ 파동함수의 부호 변화 특성이 페르미온성(스핀 1/2)을 결정한다.</p>
+<h3 data-ke-size="size23">공리 6.3 (통계)</h3>
+<p data-ke-size="size16">스핀 1/2 결함($W_p=-\mathbb{I}$)의 교환은 세계선 꼬임(Self-linking)에 대해 $(-1)$ 위상을 부여하는 공리(또는 CAR 대수)를 통해
+    페르미 통계를 만족시킨다.</p>
+<h2 data-ke-size="size26">&nbsp;</h2>
+<h2 data-ke-size="size26">7. 정팔면체(바리온) 폐합: 8-삼각면 자동 정합</h2>
+<h3 data-ke-size="size23">정의 7.1 (바리온 후보)</h3>
+<p data-ke-size="size16">쿼크형 패턴 중 구성 원소에 $0$이 포함된 경우($0 \in \{a,b,c,d\}$)만 정팔면체 폐합이 가능하기 때문에 이 경우 바리온 형성 후보로 둔다.</p>
+<h3 data-ke-size="size23">정의 7.2 (3D 폐합 조건)</h3>
+<p data-ke-size="size16">서로 다른 3색의 사각 플라켓 3개를 직교 결합하여 정팔면체 뼈대를 만들었을 때, 그 사이를 메우는 8개의 삼각 플라켓($f_1, \dots, f_8 \in P_3$)의
+    플럭스가 모두 0이어야 한다.<br />$$<br />\boxed{\forall i \in \{1..8\}, \quad Q_{f_i}(k) \equiv 0 \pmod{12}}<br />$$<br />이것이
+    만족되어야만 내부가 비어있지 않은, 완결된 입자(3D 정상파)로 존재할 수 있다.</p>
+<h3 data-ke-size="size23">예시 7.3 (구체 배치의 검증)</h3>
+<p data-ke-size="size16">제시된 8개 삼각면 경계값 합을 검증한다. (링크 방향을 고려한 부호 합)</p>
+<ol style="list-style-type: decimal;" data-ke-list-type="decimal">
+    <li>$(0,0,0) \to 0$</li>
+    <li>$(0,2,-2) \to 0$</li>
+    <li>$(0,6,6) \to 12 \equiv 0$</li>
+    <li>$(6,-2,-4) \to 0$</li>
+    <li>$(0,4,-4) \to 0$</li>
+    <li>$(2,4,6) \to 12 \equiv 0$</li>
+    <li>$(0,2,-2) \to 0$</li>
+    <li>$(0,-2,2) \to 0$</li>
+</ol>
+<p data-ke-size="size16">결론: 모든 삼각면에서 $Q_\triangle \equiv 0 \pmod{12}$이므로, 이 배치는 완벽한 정팔면체 폐합을 이룬다.</p>
+<h2 data-ke-size="size26">&nbsp;</h2>
+<h2 data-ke-size="size26">8. 동역학: 위상 보존 업데이트와 작용(Action)</h2>
+<p data-ke-size="size16">이제 시스템이 왜 $Q=0$인 상태(물질)와 폐합된 구조(바리온/메손)를 선택하는지 설명한다.</p>
+<h3 data-ke-size="size23">8.1 전체 작용 (Total Action)</h3>
+<p data-ke-size="size16">$$<br />\boxed{S = S_{SU(2)} + S_{\text{flux}} + S_{\text{coupling}}}<br />$$</p>
+<ol style="list-style-type: decimal;" data-ke-list-type="decimal">
+    <li>$SU(2)$ 윌슨 항: $S_{SU(2)} = -\beta \sum \mathrm{Re}(\mathrm{Tr}(W_p))$.</li>
+    <li>플럭스 억제(정상파 선택) 항:<br />$$<br />\boxed{S_{\text{flux}} = \mu \left( \sum_{p \in P_4} (1 - \delta_{Q_p, 0}) +
+        \sum_{f \in P_3} (1 - \delta_{Q_f, 0}) \right)}<br />$$
+        <ul style="list-style-type: disc;" data-ke-list-type="disc">
+            <li>$\mu \to \infty$ (또는 충분히 큰 값)일 때, $Q \neq 0$인 상태는 에너지가 높아 자연스럽게 소멸하거나, 위상적으로 보호된 경우에만 국소적으로 남는다.</li>
+            <li>이 항이 가둠(Confinement)의 기원이다. 단독 쿼크(개방된 색 플라켓)는 필연적으로 3D 공간에서 $Q \neq 0$인 삼각면/사각면을 유발하므로 억제된다.</li>
+        </ul>
+    </li>
+    <li>결합 항: $U(1)$ 플럭스와 $SU(2)$ 스핀 섹터 간의 약한 결합.</li>
+</ol>
+<h3 data-ke-size="size23">8.2 위상 동역학적 업데이트 (Topological Update Rule)</h3>
+<p data-ke-size="size16">시스템의 시간 발전(또는 몬테카를로 스텝)은 다음 두 가지 형태의 로컬 업데이트로 구성된다.</p>
+<ol style="list-style-type: decimal;" data-ke-list-type="decimal">
+    <li>게이지류 이동 (Coboundary update):<br />$$ k_{ij} \to k_{ij} + (s_j - s_i) \pmod{12} $$<br />이는 물리적 플럭스($Q$)를 변화시키지
+        않는다. (게이지 대칭성)</li>
+    <li>플럭스 보존 이동 (Flux-preserving Local Move):<br />링크 값 $k_{ij}$를 변경하되, 비안키 항등식(Bianchi identity)을 만족하는 방식으로 변경한다. 즉,
+        한 플라켓의 플럭스가 줄어들면 인접 플라켓의 플럭스가 늘어나는 식으로, 결함(Source)이 생성/소멸되지 않고 이동하는 형태의 업데이트를 주된 동역학으로 삼는다.
+        <ul style="list-style-type: disc;" data-ke-list-type="disc">
+            <li>쌍생성/쌍소멸: 높은 에너지 비용을 지불하고 국소적으로 $Q$와 $-Q$ 쌍을 생성하거나 소멸시키는 과정도 포함된다.</li>
+        </ul>
+    </li>
+</ol>
+<h2 data-ke-size="size26">&nbsp;</h2>
+<h2 data-ke-size="size26">9. 결론: "힘"이 아닌 "기하학적 정합성"</h2>
+<p data-ke-size="size16">이 모델에서 입자의 존재와 상호작용은 다음과 같이 요약된다.</p>
+<ul style="list-style-type: disc;" data-ke-list-type="disc">
+    <li>물질(Matter)은 사각 루프의 위상차가 없는($Q=0$) 정상파 상태이다.</li>
+    <li>색(Color)은 사각 패턴의 회전 대칭성에서 나오는 자연스러운 3분할 구조이다.</li>
+    <li>스핀(Spin)은 기하학적 프레임($SU(2)$)의 꼬임(Twist) 여부이다.</li>
+    <li>가둠(Confinement)은 강력한 '힘'이 당기는 것이 아니라, 3차원에서 위상적으로 닫히지 않는(Unclosed) 구조는 에너지가 무한히 높다(정상파가 깨짐)는 기하학적 제약 조건이다.</li>
+    <li>바리온은 3색의 사각 플라켓이 모여 8개의 삼각 플라켓까지 완벽히 닫는(Zero Flux) 유일한 3D 결합해이다.</li>
+</ul>

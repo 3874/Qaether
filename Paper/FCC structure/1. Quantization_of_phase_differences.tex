@@ -1,0 +1,559 @@
+﻿\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb, amsthm, mathtools, geometry, enumitem}
+% hyperref provides \texorpdfstring used in section titles for PDF bookmarks
+\usepackage{hyperref}
+\geometry{margin=1in}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\title{Quantized Edge Phases and Torsion on the FCC Nearest-Neighbour Complex}
+\author{Francis W. Han \\ \small Ylem Invest}
+\date{\today}
+\maketitle
+
+\begin{abstract}
+We consider the nearest-neighbour graph $G=(V,E)$ of the face-centered cubic (FCC) lattice,
+equipped with a natural $2$--dimensional cellular structure given by triangular and quadrilateral
+faces. On the cellular chain groups 
+\[
+C_2 = \mathbb Z^F,\qquad C_1 = \mathbb Z^E,
+\]
+we assume a phase assignment $\Phi : C_1 \to \mathbb R/2\pi\mathbb Z$ whose sum on the boundary
+of every $2$-cell is trivial modulo $2\pi$. This induces a group homomorphism on the quotient
+$A = C_1 / \operatorname{im}\partial_2$, and we show that for a fixed edge $e\in E$ its class
+$[e]\in A$ is a torsion element of exact order $12$. As a consequence, any $2$--chain
+$Z\in C_2$ satisfying $\partial_2 Z = k e$ must have $k$ divisible by $12$, yielding a
+quantization condition for the phase $\phi_e$ along $e$:
+\[
+\phi_e \in \frac{2\pi}{12}\mathbb Z \quad (\bmod 2\pi).
+\]
+We give a purely local, integer linear algebra proof of the relation $12e\in\operatorname{im}\partial_2$,
+together with a complementary lower bound based on phase cocycles and a simple
+least common multiple argument involving $3$-- and $4$--cycles.
+\end{abstract}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Setup and Notation}
+
+\subsection{The FCC nearest-neighbour complex}
+
+Let $G=(V,E)$ denote the nearest-neighbour graph of the FCC lattice in $\mathbb R^3$.
+We assume a fixed (periodic) $2$-dimensional cellular structure on $G$ whose $2$-cells are:
+\begin{itemize}[nosep]
+  \item triangular faces (denoted $\Delta$), coming from tetrahedral cells, and
+  \item quadrilateral faces (denoted $Q$), coming from octahedral cells, chosen as diagonal
+        quadrilateral loops.
+\end{itemize}
+We denote by $F$ the set of $2$-cells. The cellular chain groups are
+\[
+C_2 = \mathbb Z^F,\qquad C_1 = \mathbb Z^E,
+\]
+equipped with the boundary map
+\[
+\partial_2 : C_2 \to C_1.
+\]
+
+Fix an edge $e \in E$. Its local star $\operatorname{St}(e)$ consists of the $2$-cells incident
+on $e$. In the FCC complex, there are precisely six such faces:
+\[
+(Q_1,Q_2,\Delta_1,\Delta_2,\Delta_3,\Delta_4).
+\]
+The link $\operatorname{Lk}(e)$ is a cycle graph $C_6$; we denote its $1$-cells (edges of the
+link) by
+\[
+\{ a_1,\dots,a_6\},
+\]
+labelled in counterclockwise order.
+
+We choose orientations of all $2$-cells so that the boundary coefficients on the row of the
+fixed edge $e$ are all $+1$. This is always possible because we are free to reverse the orientation
+of each $2$-cell, independently.
+
+\subsection{Phase assignments and cocycle condition}
+
+To each edge $f\in E$ we assign a phase $\phi_f \in \mathbb R/2\pi\mathbb Z$. This gives
+a group homomorphism
+\[
+\Phi : C_1 \to \mathbb R/2\pi\mathbb Z,
+\]
+defined by extending $\Phi(e) = \phi_e$ linearly over $\mathbb Z$.
+
+\begin{definition}[Phase cocycle condition]
+We say that $\Phi$ satisfies the phase cocycle condition if for every $2$-cell $s\in F$ we have
+\[
+\Phi(\partial_2 s) = 0 \in \mathbb R/2\pi\mathbb Z.
+\]
+Equivalently,
+\[
+\Phi(\operatorname{im}\partial_2) = 0.
+\]
+\end{definition}
+
+The physical interpretation is that the total phase around any $2$-cell (face) boundary is
+a multiple of $2\pi$, hence trivial in $\mathbb R/2\pi\mathbb Z$.
+
+\newpage
+
+\section{Quotient Group and Induced Homomorphism}
+
+\subsection{The quotient group \(A = C_1 / \operatorname{im}\partial_2\)}
+
+Define the abelian group
+\[
+A := C_1 / \operatorname{im}\partial_2.
+\]
+An element of $A$ is the class $[c]$ of a $1$--chain $c\in C_1$, with
+\[
+[c] = [c'] \iff c-c' \in \operatorname{im}\partial_2.
+\]
+
+\begin{proposition}[Induced homomorphism]\label{prop:inducedPhi}
+Assume $\Phi(\operatorname{im}\partial_2)=0$. Then $\Phi$ descends to a well-defined
+group homomorphism
+\[
+\overline\Phi : A \longrightarrow \mathbb R/2\pi\mathbb Z,\qquad
+\overline\Phi([c]) := \Phi(c).
+\]
+\end{proposition}
+
+\begin{proof}
+Suppose $[c] = [c']$ in $A$. Then $c-c' = \partial_2 Z$ for some $Z\in C_2$.
+By hypothesis,
+\[
+\Phi(c) - \Phi(c') = \Phi(c-c') = \Phi(\partial_2 Z) = 0,
+\]
+so $\Phi(c) = \Phi(c')$ in $\mathbb R/2\pi\mathbb Z$. Thus $\overline\Phi$ is well defined.
+It is clearly a group homomorphism because $\Phi$ is.
+\end{proof}
+
+\subsection{Quantization from torsion classes}
+
+Let $[e] \in A$ be the class of a fixed edge $e\in E$.
+
+\begin{proposition}[Quantization from finite order]\label{prop:torsion-quant}
+Let $[e]\in A$ be of finite order
+\[
+k := \operatorname{ord}([e]) < \infty.
+\]
+Then the phase $\phi_e = \Phi(e)$ satisfies
+\[
+k\phi_e = 0 \quad (\bmod 2\pi),
+\]
+hence
+\[
+\phi_e \in \frac{2\pi}{k}\mathbb Z \quad (\bmod 2\pi).
+\]
+\end{proposition}
+
+\begin{proof}
+By definition of the order, $k[e]=0$ means that $ke\in\operatorname{im}\partial_2$.
+Thus there exists $Z\in C_2$ such that
+\[
+\partial_2 Z = ke.
+\]
+Applying $\Phi$ and using $\Phi(\operatorname{im}\partial_2)=0$ gives
+\[
+k\phi_e = \Phi(ke) = \Phi(\partial_2 Z) = 0 \quad (\bmod 2\pi).
+\]
+Rewriting,
+\[
+\phi_e \in \frac{2\pi}{k}\mathbb Z \quad (\bmod 2\pi).
+\]
+\end{proof}
+
+In particular, a nontrivial torsion class $[e]$ forces the phase along $e$ to be discretized
+in rational multiples of $2\pi$.
+
+\newpage
+
+\section{Local Structure Around an Edge in the FCC Complex}
+
+We now focus on a single edge $e\in E$ and analyze its local configuration in the FCC complex.
+This will allow us to compute the order of $[e]\in A$.
+
+\subsection{Local star and link}
+
+Recall that the local star $\operatorname{St}(e)$ consists of six $2$-cells:
+\[
+(Q_1,Q_2,\Delta_1,\Delta_2,\Delta_3,\Delta_4),
+\]
+where $Q_1,Q_2$ are quadrilaterals (coming from octahedra) and each $\Delta_i$ is a triangle
+(from tetrahedra).
+
+The link $\operatorname{Lk}(e)$ is combinatorially a hexagon $C_6$, with oriented edges
+$a_1,\dots,a_6$ forming a cycle. The orientations of $Q_i,\Delta_j$ are chosen so that
+the coefficient of $e$ in $\partial_2 Q_i$ and $\partial_2 \Delta_j$ is \(+1\) for each $i,j$.
+
+\subsection{Relevant block of the boundary matrix}
+
+Consider the restriction of $\partial_2 : C_2 \to C_1$ to the span of the six faces
+$(Q_1,Q_2,\Delta_1,\Delta_2,\Delta_3,\Delta_4)$, and to the span of the seven edges
+\[
+\{e, a_1,\dots,a_6\},
+\]
+where $a_i$ are the link edges in $\operatorname{Lk}(e) \cong C_6$.
+
+Label the six faces in some fixed order and write a $2$--chain
+\[
+Z = (z_1,\dots,z_6)^T \in \mathbb Z^6
+\]
+corresponding to integer coefficients of these six $2$-cells. In this basis, the relevant
+$7\times 6$ block of the boundary matrix representing $\partial_2$ has the form:
+\begin{equation}\label{eq:local-boundary-matrix}
+\partial_2 =
+\begin{pmatrix}
+1 & 1 & 1 & 1 & 1 & 1 \\
+-1 & 1 & 0 & 0 & 0 & 0\\
+0 & -1 & 1 & 0 & 0 & 0\\
+0 & 0 & -1 & 1 & 0 & 0\\
+0 & 0 & 0 & -1 & 1 & 0\\
+0 & 0 & 0 & 0 & -1 & 1\\
+1 & 0 & 0 & 0 & 0 & -1
+\end{pmatrix}.
+\end{equation}
+Here:
+\begin{itemize}[nosep]
+  \item the first row corresponds to the coefficient of the edge $e$ in $\partial_2 Z$,
+  \item the subsequent six rows correspond to the coefficients of the link edges
+        $a_1,\dots,a_6$ in $\partial_2 Z$, capturing a cyclic difference pattern.
+\end{itemize}
+
+\newpage
+
+\section{Upper Bound: \texorpdfstring{$\operatorname{ord}([e])\mid 12$}{ord([e]) divides 12}}
+
+We now show that $12e$ is a boundary, hence the order of $[e]$ divides $12$.
+
+\begin{lemma}[Local integer solution for $12e$]\label{lem:12e-boundary}
+There exists a $2$--chain $Z\in C_2$ supported in $\operatorname{St}(e)$ such that
+\[
+\partial_2 Z = 12e.
+\]
+In particular, $12e \in \operatorname{im}\partial_2$ and thus $12[e]=0$ in $A$.
+\end{lemma}
+
+\begin{proof}
+In terms of the local coordinates $Z = (z_1,\dots,z_6)^T\in\mathbb Z^6$, the equation
+$\partial_2 Z = 12e$ in the $7\times 6$ block \eqref{eq:local-boundary-matrix} becomes
+\[
+\partial_2 Z =
+\begin{pmatrix}
+12 \\ 0 \\ \vdots \\ 0
+\end{pmatrix}.
+\]
+Explicitly, this is the system
+\begin{align*}
+\text{(link edges)}\quad & -z_1 + z_2 = 0,\\
+& -z_2 + z_3 = 0,\\
+& -z_3 + z_4 = 0,\\
+& -z_4 + z_5 = 0,\\
+& -z_5 + z_6 = 0,\\
+& z_1 - z_6 = 0,\\[0.5em]
+\text{(edge $e$)}\quad & z_1 + z_2 + z_3 + z_4 + z_5 + z_6 = 12.
+\end{align*}
+From the first six (link) equations we obtain
+\[
+z_1 = z_2 = z_3 = z_4 = z_5 = z_6 =: t.
+\]
+Substituting into the $e$--row equation yields
+\[
+6t = 12 \quad\Rightarrow\quad t = 2.
+\]
+Thus
+\[
+Z = (2,2,2,2,2,2)^T
+\]
+is an integer solution and we indeed have
+\[
+\partial_2 Z =
+\begin{pmatrix}
+1 & 1 & 1 & 1 & 1 & 1 \\
+\vdots & & & & & \vdots
+\end{pmatrix}
+\begin{pmatrix}
+2 \\ 2 \\ 2 \\ 2 \\ 2 \\ 2
+\end{pmatrix}
+=
+\begin{pmatrix}
+12 \\ 0 \\ \vdots \\ 0
+\end{pmatrix}
+= 12e
+\]
+in the local basis.
+
+Hence $12e \in \operatorname{im}\partial_2$, so $12[e]=0$ in $A$.
+\end{proof}
+
+\begin{corollary}[Upper bound on the order]\label{cor:upper-bound}
+The order of $[e]\in A$ divides $12$:
+\[
+\operatorname{ord}([e]) \mid 12.
+\]
+\end{corollary}
+
+\begin{proof}
+By Lemma~\ref{lem:12e-boundary}, we have $12[e]=0$. By definition, the order of $[e]$
+is the minimal positive integer $k$ such that $k[e]=0$. Hence $k$ must divide $12$.
+\end{proof}
+
+This proves the upper bound on $\operatorname{ord}([e])$.
+
+\newpage
+
+\section{Lower Bound via Phase Cocycles and LCM of Loop Lengths}
+
+We now show that no nonzero multiple of $[e]$ with coefficient less than $12$ can vanish.
+Equivalently, we prove
+\[
+12 \mid \operatorname{ord}([e]),
+\]
+which, combined with Corollary~\ref{cor:upper-bound}, will yield $\operatorname{ord}([e])=12$.
+
+\subsection{Phase cocycles and induced map on $A$}
+
+Assume $\Phi : C_1 \to \mathbb R/2\pi\mathbb Z$ satisfies the phase cocycle condition,
+\[
+\Phi(\operatorname{im}\partial_2)=0.
+\]
+By Proposition~\ref{prop:inducedPhi}, this induces a group homomorphism
+\[
+\overline\Phi : A \to \mathbb R/2\pi\mathbb Z,\qquad \overline\Phi([c]) = \Phi(c).
+\]
+
+We will construct phase assignments so that $\overline\Phi([e])$ has exact order $12$ in
+$\mathbb R/2\pi\mathbb Z$. The general group-theoretic fact used is:
+
+\begin{lemma}[Order under homomorphisms]\label{lem:order-divides}
+Let $f:A\to B$ be a group homomorphism of abelian groups and $a\in A$ an element of finite order.
+Then
+\[
+\operatorname{ord}(f(a)) \mid \operatorname{ord}(a).
+\]
+\end{lemma}
+
+\begin{proof}
+Let $n = \operatorname{ord}(a) < \infty$, so $na=0$ and $ka\neq0$ for any $0<k<n$.
+Then
+\[
+f(na) = nf(a) = 0_B.
+\]
+Hence $\operatorname{ord}(f(a))$ divides $n$.
+\end{proof}
+
+Thus, if we can realize $\overline\Phi([e])$ as an element of order $12$ in
+$\mathbb R/2\pi\mathbb Z$, we obtain $12 \mid \operatorname{ord}([e])$.
+
+\subsection{Shared quadrilateral--triangle edge and a symmetric phase Ansatz}
+
+Consider an edge $e$ which is simultaneously a side of a quadrilateral face and a triangular face.
+This is always the case in the FCC complex. Let $\Box$ be a quadrilateral loop
+with boundary edges $(e_1,e_2,e_3,e_4)$, and let $\triangle$ be a triangular loop
+with boundary edges $(f_1,f_2,f_3)$, so that
+\[
+e_1 = f_1 = e
+\]
+is the shared edge.
+
+We lift phases from $\mathbb R/2\pi\mathbb Z$ to $\mathbb R$ by choosing representatives
+$\widetilde\phi_f\in\mathbb R$ such that
+\[
+\widetilde\phi_f \equiv \phi_f \pmod{2\pi}.
+\]
+We look for a highly symmetric phase assignment in which all boundary edges of
+$\Box$ and $\triangle$ have the same lifted phase $\theta$:
+\[
+\widetilde\phi_{e_i} = \widetilde\phi_{f_j} = \theta \qquad (\forall i,j).
+\]
+The phase cocycle condition on these two faces then reads:
+\begin{align*}
+\text{Quadrilateral:}\quad
+&\widetilde\phi_{e_1} + \widetilde\phi_{e_2} + \widetilde\phi_{e_3} + \widetilde\phi_{e_4}
+= 4\theta = 2\pi n_{\Box},\quad n_{\Box}\in\mathbb Z,\\
+\text{Triangle:}\quad
+&\widetilde\phi_{f_1} + \widetilde\phi_{f_2} + \widetilde\phi_{f_3}
+= 3\theta = 2\pi n_\triangle,\quad n_\triangle\in\mathbb Z.
+\end{align*}
+
+Let
+\[
+x := \frac{\theta}{2\pi}.
+\]
+Then the above conditions become
+\[
+4x = n_{\Box}\in\mathbb Z,\qquad 3x = n_\triangle\in\mathbb Z.
+\]
+Hence
+\[
+x \in \frac{1}{4}\mathbb Z \cap \frac{1}{3}\mathbb Z
+= \frac{1}{\operatorname{lcm}(4,3)}\mathbb Z
+= \frac{1}{12}\mathbb Z.
+\]
+Thus there exists an integer $k$ such that
+\[
+x = \frac{k}{12},\qquad \theta = 2\pi x = \frac{2\pi k}{12}.
+\]
+
+In particular, choosing $k=1$ we obtain a legitimate phase assignment on these loops for which
+\[
+\phi_e \equiv \theta \equiv \frac{2\pi}{12} \quad (\bmod 2\pi)
+\]
+on the shared edge $e$.
+
+\begin{remark}
+The above symmetric Ansatz concerns only the local loops $\Box$ and $\triangle$.
+To obtain a global phase cocycle $\Phi$ on $C_1$ satisfying $\Phi(\partial_2 s)=0$ for
+\emph{all} faces $s\in F$, one must check global consistency of these local constraints.
+In what follows, we assume that the FCC complex is taken on a periodic domain (e.g.\ a
+$3$--torus fundamental domain), and that a global solution $\Phi$ exists extending
+this local pattern; equivalently, we assume the existence of a phase cocycle whose
+restriction to the neighborhood of $e$ has the above symmetric form.
+\end{remark}
+
+Under this assumption, we obtain:
+
+\begin{lemma}[Existence of an order-$12$ phase value]\label{lem:order12-phase}
+There exists a phase cocycle $\Phi : C_1\to\mathbb R/2\pi\mathbb Z$ such that
+\[
+\overline\Phi([e]) = \Phi(e) = \frac{2\pi}{12}.
+\]
+In particular, the element $\overline\Phi([e])$ has order $12$ in $\mathbb R/2\pi\mathbb Z$:
+\[
+12\cdot \frac{2\pi}{12} = 2\pi \equiv 0,\quad
+m\cdot \frac{2\pi}{12} \equiv 0 \pmod{2\pi} \Rightarrow 12\mid m.
+\]
+\end{lemma}
+
+\begin{proof}
+By the symmetric Ansatz, we can assign $\phi_e \equiv \frac{2\pi}{12}$ to the shared edge
+$e$, and choose phases on other edges so that all $2$-cell boundary sums are multiples
+of $2\pi$ and the assignment extends to a global phase cocycle $\Phi$.
+Then
+\[
+\overline\Phi([e]) = \Phi(e) = \frac{2\pi}{12}.
+\]
+This element has order $12$ in $\mathbb R/2\pi\mathbb Z$ by direct inspection:
+\[
+12\cdot\frac{2\pi}{12} = 2\pi \equiv 0
+\]
+and if $m\cdot\frac{2\pi}{12} \equiv 0\ (\bmod 2\pi)$, then $2\pi \mid m\cdot\frac{2\pi}{12}$
+so $12\mid m$.
+\end{proof}
+
+\subsection{Lower bound on \texorpdfstring{$\operatorname{ord}([e])$}{ord([e])}}
+
+\begin{proposition}[Lower bound]\label{prop:lower-bound}
+Under the above assumptions on the existence of a phase cocycle $\Phi$ with
+$\Phi(e)=2\pi/12$, we have
+\[
+12 \mid \operatorname{ord}([e]).
+\]
+\end{proposition}
+
+\begin{proof}
+By Lemma~\ref{lem:order12-phase}, there exists a phase cocycle $\Phi$ with
+\[
+\overline\Phi([e]) = \frac{2\pi}{12},
+\]
+so $\overline\Phi([e])$ has order $12$ in $\mathbb R/2\pi\mathbb Z$.
+By Lemma~\ref{lem:order-divides} applied to $f = \overline\Phi$ and $a = [e]$,
+\[
+\operatorname{ord}(\overline\Phi([e])) \mid \operatorname{ord}([e]).
+\]
+Since the left-hand side is $12$, this implies
+\[
+12 \mid \operatorname{ord}([e]).
+\]
+\end{proof}
+
+\newpage
+
+\section{Main Result: Exact Order and Quantization Condition}
+
+Combining the upper and lower bounds we obtain the main structural result.
+
+\begin{theorem}[Exact order of the edge class]\label{thm:ord-e-12}
+For the fixed edge $e\in E$ in the FCC nearest-neighbour complex, we have
+\[
+\operatorname{ord}([e]) = 12
+\]
+in the quotient group $A = C_1/\operatorname{im}\partial_2$.
+\end{theorem}
+
+\begin{proof}
+By Corollary~\ref{cor:upper-bound}, $\operatorname{ord}([e])$ divides $12$.
+By Proposition~\ref{prop:lower-bound}, $12$ divides $\operatorname{ord}([e])$.
+Thus by basic number theory,
+\[
+\operatorname{ord}([e]) = 12.
+\]
+\end{proof}
+
+As a direct corollary, we obtain the desired divisibility condition on the coefficient
+of $e$ in any boundary.
+
+\begin{corollary}[Divisibility of edge coefficient]\label{cor:divisibility-k}
+Let $Z\in C_2$ be any $2$--chain such that
+\[
+\partial_2 Z = k e
+\]
+for some integer $k\in\mathbb Z$. Then
+\[
+12 \mid k.
+\]
+\end{corollary}
+
+\begin{proof}
+In $A$, we have
+\[
+0 = [\partial_2 Z] = k[e].
+\]
+Since $\operatorname{ord}([e])=12$, by definition we have
+\[
+k[e]=0 \quad\Longleftrightarrow\quad 12\mid k.
+\]
+Thus $12$ divides $k$.
+\end{proof}
+
+Finally, we translate this back into a quantization statement for the phase along $e$.
+
+\begin{corollary}[Quantization of the edge phase]\label{cor:phase-quantization}
+Let $\Phi : C_1 \to \mathbb R/2\pi\mathbb Z$ be a phase cocycle and let $\phi_e = \Phi(e)$.
+Then
+\[
+\phi_e \in \frac{2\pi}{\operatorname{ord}([e])}\mathbb Z \quad (\bmod 2\pi)
+= \frac{2\pi}{12}\mathbb Z \quad (\bmod 2\pi).
+\]
+\end{corollary}
+
+\begin{proof}
+Immediate from Proposition~\ref{prop:torsion-quant} and Theorem~\ref{thm:ord-e-12}.
+\end{proof}
+
+\newpage
+
+\section*{Conclusion}
+
+We have described a local computation in the FCC nearest-neighbour complex which shows that
+the edge class $[e]\in C_1/\operatorname{im}\partial_2$ has exact order $12$. The argument
+uses only the local boundary relations around $e$ and the existence of phase cocycles whose
+face boundary sums vanish modulo $2\pi$. As a consequence, any $2$--chain whose boundary
+is a multiple of a single edge $e$ must have that multiple divisible by $12$, and the phase
+assigned to $e$ is correspondingly quantized in units of $2\pi/12$.
+
+\end{document}
+

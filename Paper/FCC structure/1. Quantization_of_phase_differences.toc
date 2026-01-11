@@ -1,0 +1,15 @@
+\contentsline {section}{\numberline {1}Setup and Notation}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}The FCC nearest-neighbour complex}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Phase assignments and cocycle condition}{3}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Quotient Group and Induced Homomorphism}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}The quotient group \(A = C_1 / \operatorname {im}\partial _2\)}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Quantization from torsion classes}{4}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Local Structure Around an Edge in the FCC Complex}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Local star and link}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Relevant block of the boundary matrix}{5}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Upper Bound: $\operatorname {ord}([e])\mid 12$}{6}{section.4}%
+\contentsline {section}{\numberline {5}Lower Bound via Phase Cocycles and LCM of Loop Lengths}{8}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Phase cocycles and induced map on $A$}{8}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Shared quadrilateral--triangle edge and a symmetric phase Ansatz}{8}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Lower bound on $\operatorname {ord}([e])$}{10}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Main Result: Exact Order and Quantization Condition}{11}{section.6}%

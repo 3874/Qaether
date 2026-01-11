@@ -1,0 +1,176 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\geometry{a4paper, margin=1in}
+\setlength{\parskip}{0.7em}
+\setlength{\parindent}{0pt}
+
+\title{\textbf{Counting Distinct Plaquette Phase Configurations under Dihedral Symmetry}}
+\author{Francis W. Han \\ \small Ylem Invest}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We consider a square plaquette whose four directed links carry distinct quantized phases
+\((a,b,c,d)\).
+When rotations and reflections of the plaquette are regarded as symmetry operations,
+two assignments related by such a symmetry are considered equivalent.
+By applying Burnside’s lemma to the dihedral group \(D_4\),
+we compute the number of inequivalent configurations.
+The result shows that there exist precisely three distinct configurations,
+consistent with the classical formula \((n-1)!/2\) for \(n=4\).
+This simple enumeration highlights the combinatorial structure
+of discrete gauge-phase arrangements on a symmetric lattice plaquette.
+\end{abstract}
+
+\section{Introduction}
+
+In lattice models of gauge theory and condensed matter systems,
+a plaquette often serves as the minimal closed loop through which
+link phases or fluxes are defined~\cite{harary1969graph}.
+When link variables are quantized, their relative order around the plaquette
+becomes physically meaningful only up to the symmetries of the square.
+Counting such equivalence classes of assignments reveals
+how many genuinely distinct local configurations exist under lattice symmetry.
+
+This paper derives that count for the simplest case:
+a plaquette with four distinct link phases \((a,b,c,d)\)
+and the full dihedral symmetry group \(D_4\) acting on it.
+Despite the simplicity, the problem directly parallels
+the classification of discrete flux patterns or phase windings
+under rotational and mirror symmetries~\cite{conway1976numbers}.
+
+\section{Mathematical Setting}
+
+Let
+\[
+X = \{\, (x_1,x_2,x_3,x_4) \mid (x_1,x_2,x_3,x_4)
+\ \text{is a permutation of}\ (a,b,c,d)\,\},
+\]
+so that \(|X| = 4! = 24.\)
+
+The dihedral group of the square,
+\[
+D_4 = \{ e, r_{90}, r_{180}, r_{270}, s_x, s_y, s_d, s_{d'} \},
+\]
+acts on \(X\) by permuting indices according to the square’s rotations
+and reflections~\cite{burnside1897theory}.
+Two configurations are \emph{equivalent} if they lie in the same orbit
+of this action.
+
+The goal is to determine the number of distinct orbits \(|X/D_4|\).
+
+\section{Burnside’s Lemma}
+
+For a finite group \(G\) acting on a finite set \(X\),
+\begin{equation}
+|X/G| = \frac{1}{|G|} \sum_{g\in G} \mathrm{Fix}(g),
+\label{eq:burnside}
+\end{equation}
+where \(\mathrm{Fix}(g)\) denotes the number of elements of \(X\)
+fixed by the group element \(g\)~\cite{polya1987combinatorial}.
+
+Here, \(|G| = |D_4| = 8\) and \(|X| = 24.\)
+
+\section{Fixed Configurations}
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Element \(g\) & Description of action & \(\mathrm{Fix}(g)\) \\
+\midrule
+\(e\) & Identity & 24 \\
+\(r_{90}, r_{270}\) & 4-cycle permutations & 0 \\
+\(r_{180}\) & Swaps opposite links \((1\,3)(2\,4)\) & 0 \\
+\(s_x,s_y,s_d,s_{d'}\) & Reflections swapping link pairs & 0 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Since all phases are distinct, no nontrivial symmetry can fix a configuration.
+Substituting into~\eqref{eq:burnside} gives
+\[
+|X/D_4| = \frac{1}{8}(24) = 3.
+\]
+
+\section{Result and Interpretation}
+
+\newtheorem{theorem}{Theorem}
+\begin{theorem}
+Let four distinct phases \((a,b,c,d)\) be assigned to the four directed links
+of a square plaquette, and identify configurations related by the dihedral group \(D_4\).
+Then the number of inequivalent configurations is
+\[
+N = 3.
+\]
+\end{theorem}
+
+This coincides with the classical combinatorial expression
+for cyclic arrangements of \(n\) distinct symbols under reflection:
+\[
+N = \frac{(n-1)!}{2}, \qquad (n=4).
+\]
+
+Physically, the three equivalence classes correspond to
+the three distinct cyclic orderings in which
+four distinct quantized link phases can circulate around the plaquette,
+consistent with rotational and mirror symmetry.
+
+\section{Discussion}
+
+This enumeration illustrates how symmetry drastically reduces
+the apparent combinatorial complexity of local gauge configurations.
+Although \(24\) raw permutations exist,
+the square’s eight symmetry operations identify them into only three types.
+Such reductions underpin the combinatorial basis of
+symmetry-protected flux quantization and discrete gauge structures.
+
+In general, for \(n\) distinct directed link variables
+on an \(n\)-gon with dihedral symmetry \(D_n\),
+the number of inequivalent configurations follows the same pattern:
+\[
+N(n) = \frac{(n-1)!}{2},
+\]
+a result that smoothly generalizes the current derivation
+and mirrors P\'olya’s enumeration framework~\cite{polya1987combinatorial}.
+
+\section{Conclusion}
+
+Applying Burnside’s lemma to the dihedral group \(D_4\),
+we established that four distinct link phases on a square plaquette
+produce exactly three inequivalent configurations under full symmetry.
+This provides a compact combinatorial foundation
+for classifying local phase arrangements in discrete lattice models
+and related gauge systems.
+
+\section*{References}
+
+\begin{thebibliography}{9}
+\bibitem{polya1987combinatorial}
+G.~P\'olya and R.~C.~Read,
+\emph{Combinatorial Enumeration of Groups, Graphs, and Chemical Compounds}.
+Springer, 1987.
+
+\bibitem{conway1976numbers}
+J.~H.~Conway, R.~K.~Guy, et~al.,
+\emph{On Numbers and Games}.
+Academic Press, 1976.
+
+\bibitem{harary1969graph}
+F.~Harary,
+\emph{Graph Theory}.
+Addison--Wesley, 1969.
+
+\bibitem{burnside1897theory}
+W.~Burnside,
+\emph{Theory of Groups of Finite Order}.
+Cambridge University Press, 1897.
+\end{thebibliography}
+
+\end{document}

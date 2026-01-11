@@ -1,0 +1,143 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, bm}
+\usepackage{geometry}
+\usepackage{cite}
+\geometry{margin=1in}
+\begin{document}
+
+\title{Emergence of SU(3) Gauge Symmetry from Plaquette Phase Quantization}
+\author{Francis Han}
+\date{\today}
+\maketitle
+
+\begin{abstract}
+This work presents a detailed, step-by-step derivation of SU(3) gauge symmetry emergence within the discrete plaquette phase quantization framework. Beginning with the flatness condition of plaquette phases and discrete link phase quantization, we identify equivalence classes of plaquette permutations and map them to SU(3) weight vectors. We then construct diagonal link variables, introduce off-diagonal gauge degrees of freedom, and validate the full SU(3) symmetry through Lie algebra and Weyl group arguments. We further discuss the role of plaquette defects as color charge sources, delineate the confinement mechanism via Wilson loops, and propose numerical simulation strategies. Appendices reinforce Cartan generator normalization, the Baker–Campbell–Hausdorff expansion for gluon activation, and continuum limit derivations of the Yang–Mills action.
+\end{abstract}
+
+\section{Assumptions and Starting Point}
+We impose the plaquette flatness condition:
+\begin{equation}
+\Theta_{\mu\nu}(x) = \theta_\mu(x) + \theta_\nu(x+\hat\mu) - \theta_\mu(x+\hat\nu) - \theta_\nu(x) = 0 \quad (\bmod 2\pi).
+\end{equation}
+Link phases are quantized as:
+\begin{equation}
+\theta_\mu(x) = n_\mu(x)\delta,\quad n_\mu(x)\in\mathbb{Z},\quad \delta = \frac{2\pi}{N},\quad N\ge3,
+\end{equation}
+ensuring each link takes values in $\mathbb{Z}_N$ and each plaquette carries zero discrete curvature, corresponding to pure gauge solutions.
+
+\section{Plaquette Phase Permutations and Equivalence Classes}
+For a plaquette with four ordered phase values $\{a,b,c,d\}$, there are $4! = 24$ possible permutations. Modding out by cyclic rotations ($\mathbb{Z}_4$) and reflections ($\mathbb{Z}_2$) reduces these to three independent equivalence classes:
+\begin{equation}
+\frac{4!}{4\times2} = 3.
+\end{equation}
+These three classes form the basis for mapping onto SU(3) color charge channels.
+
+\section{Equivalence Classes $\leftrightarrow$ SU(3) Weight Vector Mapping}
+We select representative permutations for each class and map them to Cartan-space weight vectors:
+
+$$
+\begin{aligned}
+\text{Class I: }(a,b,c,d)&\quad\rightarrow\quad\omega_1 = (1,0), \\
+\text{Class II: }(a,b,d,c)&\quad\rightarrow\quad\omega_2 = (-\tfrac12,\tfrac{\sqrt3}{2}), \\
+\text{Class III: }(a,c,b,d)&\quad\rightarrow\quad\omega_3 = (-\tfrac12,-\tfrac{\sqrt3}{2}).
+\end{aligned}
+$$
+
+These three weight vectors correspond exactly to the weights of the SU(3) fundamental representation, with Weyl group $S_3$ actions realized by permutation and inversion of the plaquette ordering.
+
+\section{Interpretation of Diagonal SU(3) Link Variables}
+Using Cartan generators $H_1,H_2$ defined in Appendix A, we construct diagonal link variables:
+\begin{equation}
+U_\mu(x) = \exp\bigl(i\delta\omega_k^i H_i\bigr),\quad k=1,2,3.
+\end{equation}
+Under local SU(3) gauge transformations
+$U_\mu(x)\to G(x)U_\mu(x)G^{-1}(x+\hat\mu)$, the three weight components mix, signaling the emergence of full SU(3) gauge freedom.
+
+\section{Verification of Emergent SU(3) Symmetry}
+The SU(3) Lie algebra relations
+$[H_i,E_{\alpha}] = \alpha_i E_{\alpha},\;[E_{\alpha},E_{-\alpha}] = \alpha_i H_i$
+and the Weyl reflections realized by plaquette permutations confirm the consistency of the emergent symmetry. Introducing off-diagonal couplings in the Wilson plaquette operator
+$U_{\mu\nu}(x) = \exp(i\Theta_{\mu\nu}(x))$ extends the theory to full SU(3) gauge dynamics.
+
+\section{Introduction of Off-Diagonal Gauge Degrees of Freedom}
+We generalize link variables to include the six off-diagonal generators:
+\begin{equation}
+U_\mu(x) = \exp\Bigl[i\delta H(x) + i g\sum_{\alpha=1}^6A_\mu^\alpha(x)E_\alpha\Bigr]\in SU(3).
+\end{equation}
+Here, $A_\mu^\alpha(x)$ denote gluon field components, and $g$ is the gauge coupling constant. The gauge action takes the Wilson form:
+\begin{equation}
+S_{\rm gauge} = \frac{1}{g^2}\sum_{x,\mu<\nu}\Re\operatorname{Tr}[1 - U_{\mu\nu}(x)],
+\end{equation}
+and in the continuum limit $(a\to0)$,
+$\Re\operatorname{Tr}[1-U_{\mu\nu}]\approx\tfrac{a^4}{2}F^a_{\mu\nu}F^{a\mu\nu}$.
+
+\section{Plaquette Defects ($\Theta\neq0$) and Color Charge Sources}
+By allowing
+$\Theta_{\mu\nu}(x) = 2\pi q_{\mu\nu}(x)\neq0,\;q\in\mathbb{Z}$, we insert discrete magnetic defects. Defects localized on plaquettes correspond to color charge densities $\rho^a(\tilde x)$ at dual sites and source terms
+\begin{equation}
+S_{\rm source} = i\sum_{\tilde x,a}\rho^a(\tilde x)\phi^a(\tilde x),
+\end{equation}
+where $\phi^a$ are dual gauge potentials. The combined equations of motion
+$\delta S_{\rm gauge} + \delta S_{\rm source} = 0$
+yield localized curvature around defect sites.
+
+\section{Color Charge Dynamics and Confinement Mechanism}
+The Wilson loop observable
+$W(C)=\operatorname{Tr}\prod_{l\in C}U_l$
+in the strong coupling limit $(g\gg1)$ exhibits an area law:
+\begin{equation}
+\langle W(C)\rangle \sim (1/N)^{A(C)} \approx e^{-\sigma A(C)},\quad \sigma=-\ln(1/N).
+\end{equation}
+This implies flux tube formation with linear potential $V(r)\approx\sigma r$. We propose Monte Carlo simulations with inserted defects $q_{\mu\nu}$ to extract confinement length scales via Wilson loop behavior.
+
+\section\*{Appendix A: Cartan Generator Normalization}
+We adopt the standard SU(3) Cartan basis:
+\begin{equation}
+H_1=\frac12\begin{pmatrix}1&0&0\\0&-1&0\\0&0&0\end{pmatrix},\quad H_2=\frac{1}{2\sqrt3}\begin{pmatrix}1&0&0\\0&1&0\\0&0&-2\end{pmatrix},\quad \mathrm{Tr}(H_iH_j)=\tfrac12\delta_{ij}.
+\end{equation}
+
+\section\*{Appendix B: Baker–Campbell–Hausdorff Expansion}
+For $X=i\delta(\omega\cdot H)$ and $Y=i g A_\mu^\alpha E_\alpha$, the BCH formula
+\begin{equation}
+e^X Y e^{-X} = Y + [X,Y] + \tfrac12[X,[X,Y]] + \cdots = e^{i\delta \alpha_i\omega_i}E_\alpha
+\end{equation}
+explicitly demonstrates gluon activation.
+
+\section\*{Appendix C: Continuum Limit and Yang–Mills Field Strength}
+Expanding the plaquette operator
+\begin{equation}
+U_{\mu\nu}(x)=\exp\bigl(i a^2 \mathcal{F}_{\mu\nu}(x)+\mathcal{O}(a^3)\bigr),
+\end{equation}
+with
+$\mathcal{F}_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu + i g[A_\mu,A_\nu]$,
+leads to the continuum action
+$S_{\rm gauge}\to\int d^4x\tfrac12\mathrm{Tr}(\mathcal{F}_{\mu\nu}\mathcal{F}^{\mu\nu})$.
+
+\section\*{Appendix D: Strong Coupling Expansion and Area Law Coefficient}
+In the strong coupling expansion,
+\begin{equation}
+\langle W(C)\rangle\sim(1/N)^{A(C)}\approx e^{-\sigma A(C)},\quad \sigma=-\ln(1/N),
+\end{equation}
+providing an explicit area law. Numerical coefficients can be computed via Monte Carlo methods for validation.
+
+\bibliographystyle{unsrt}
+\begin{thebibliography}{99}
+
+\bibitem{Wilson1974}
+K.G.Wilson, "Confinement of quarks," \textit{Phys. Rev. D} \textbf{10}, 2445 (1974).
+
+\bibitem{Kogut1979}
+J.B.Kogut, "An introduction to lattice gauge theory and spin systems," \textit{Rev. Mod. Phys.} \textbf{51}, 659 (1979).
+
+\bibitem{Georgi1982}
+H.Georgi, \textit{Lie Algebras in Particle Physics}, Westview Press (1982).
+
+\bibitem{tHooft1978}
+G.'t Hooft, "On the Phase Transition Towards Permanent Quark Confinement," \textit{Nucl. Phys. B} \textbf{138}, 1 (1978).
+
+\bibitem{Hall2015}
+B.C.Hall, \textit{Lie Groups, Lie Algebras, and Representations: An Elementary Introduction}, 2nd ed., Springer (2015).
+
+\end{thebibliography}
+
+\end{document}
