@@ -1,0 +1,145 @@
+<script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], } };</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<h2 data-ke-size="size26">0. 핵심 아이디어 요약</h2>
+<h3 data-ke-size="size23">0.1 우리가 구현하려는 것</h3>
+<p data-ke-size="size16">Qaether는 입자와 상호작용을 &ldquo;힘(force)&rdquo;이 아니라 FCC 접촉 네트워크 위의 기하학적 정합성(closure)으로 설명하는 모델이다.
+</p>
+<ul style="list-style-type: disc;" data-ke-list-type="disc">
+    <li>물질(Matter): 동역학이 자연스럽게 선택하는 저에너지 무결함(무플럭스) 상태를 물질의 기본형으로 본다.</li>
+    <li>색(Color): 사각 플라켓의 링크 값 패턴에서 &ldquo;시작점 재라벨링(회전 동치)&rdquo;을 취하면, 자연스럽게 3분할(3색) 구조가 나타난다.</li>
+    <li>가둠(Confinement): 색원(color source)은 결함면(defect surface)의 경계(boundary)로 정의되며, 두 색원을 거리 $R$만큼 분리할 때 최소 에너지
+        비용이<br />$$<br />E(R)\sim \sigma R<br />$$<br />로 선형 증가하는 성질(스트링 텐션 $\sigma&gt;0$)을 가둠으로 정의한다.</li>
+    <li>스핀(Spin): $SU(2)$ 프레임 층에서 플라켓 홀로노미의 곡률각 $\theta_p$가 에너지를 결정한다.</li>
+    <li>바리온(Baryon): 정팔면체를 기본 3-셀로 채택한다. $Q_p=0$인 사각 플라켓 3개가 서로 직교 결합하여 정팔면체 뼈대를 만들고, 그 뼈대의 경계에 해당하는 8개의 삼각 플라켓이 모두
+        $Q=0$이면, 이는 완결된 3D 폐합 입자(바리온)이다.</li>
+</ul>
+<h3 data-ke-size="size23">0.2 (중요) 컷오프/플럭스 공리</h3>
+<h4 data-ke-size="size20">공리 0.A (컴팩트 위상)</h4>
+<p data-ke-size="size16">Qaether의 $U(1)$ 섹터에서 물리적으로 관측 가능한 위상은 항상<br />$$<br />\Phi \in \mathbb R/2\pi\mathbb
+    Z<br />$$<br />로 정의되며, $2\pi$의 정수배만큼 차이가 나는 위상은 동일한 물리 상태로 식별한다.</p>
+<h3 data-ke-size="size23">(A1) 로컬(플라켓/수축 가능한 루프) 원리</h3>
+<p data-ke-size="size16">플라켓 경계 $\partial f$ 및 임의의 수축 가능한(closed and contractible) 루프 $\gamma$에 대해, 루프
+    홀로노미(위상합)<br />$$<br />\Phi(\gamma)=\sum_{e\in\gamma}\Delta\phi_e<br />$$<br />는 오직 $(\bmod,2\pi)$로만 물리적 의미를
+    가지며,<br />$$<br />\Phi(\gamma)\equiv \Phi(\gamma)+2\pi m \qquad (m\in\mathbb Z)<br />$$<br />에서 정수 $m$은 추가적인 독립 물리량이
+    아니다.<br />즉, 로컬 플라켓 플럭스는 $\Phi_f \pmod{2\pi}$로 완전히 기술된다.</p>
+<h3 data-ke-size="size23">(A2) 전역(비수축 루프) 섹터의 허용</h3>
+<p data-ke-size="size16">공간(격자 복합체) $X$가 비자명한 1-사이클을 가져 비수축 루프(non-contractible loop) $\Gamma$가 존재하는 경우(예: 주기 경계 조건), 그
+    루프에 대한 전역 홀로노미<br />$$<br />\Phi(\Gamma)\in \mathbb R/2\pi\mathbb Z<br />$$<br />는 서로 다른 전역(위상) 섹터를 라벨링할 수 있으며, 이는
+    로컬 플라켓 데이터만으로 항상 제거(게이지로 소거)되지 않을 수 있다.<br />따라서 &ldquo;$m$의 비물리성&rdquo; 주장은 로컬(수축 가능한 루프)에 한정되며, 전역 섹터는 별도로 허용된다.
+</p>
+<h3 data-ke-size="size23">(A3) 컷오프 직관(서브-$l_p$ 모순 회피의 의미)</h3>
+<p data-ke-size="size16">모델이 컴팩트 게이지 위상(주기 $2\pi$)과 격자 컷오프 $l_p$를 갖기 때문에, 로컬 루프에서 &ldquo;추가 감김수 $m$&rdquo;을 독립 물리량으로
+    해석하여 더 짧은 파장을 억지로 도입할 필요가 없다. 로컬 관측량은 항상 $(\bmod,2\pi)$로 완결된다.</p>
+<h2 data-ke-size="size26">1. 공간: FCC 접촉 네트워크의 3-복합체</h2>
+<h3 data-ke-size="size23">공리 1.1 (기본 격자)</h3>
+<p data-ke-size="size16">공간은 셀 복합체<br />$$<br />X=(V,E,P,C_3)<br />$$<br />로 정의한다.</p>
+<ul style="list-style-type: disc;" data-ke-list-type="disc">
+    <li>$V$: 사이트(0-셀)</li>
+    <li>$E$: 유향 링크(1-셀). $i\to j$와 $j\to i$는 같은 접촉의 반대 방향이다.</li>
+    <li>$P=P_4\cup P_3$: 2-셀 집합
+        <ul style="list-style-type: disc;" data-ke-list-type="disc">
+            <li>$P_4$: 사각 플라켓</li>
+            <li>$P_3$: 삼각 플라켓</li>
+        </ul>
+    </li>
+    <li>$C_3$: 3-셀(부피 셀) 집합</li>
+</ul>
+<h3 data-ke-size="size23">공리 1.2 (정팔면체 3-셀 채택)</h3>
+<p data-ke-size="size16">$C_3$의 기본 원소로 정팔면체 3-셀 $O$를 채택한다. 각 정팔면체 3-셀 $O$의 경계는 정확히 8개의 삼각 플라켓으로
+    주어진다:<br />$$<br />\boxed{\partial_3 O = \sum_{i=1}^{8} \mathrm{sgn}(O,f_i) \, f_i\qquad (f_i\in
+    P_3)}<br />$$<br />또한 체인 복합체의 표준 항등식<br />$$<br />\boxed{\partial_2\circ \partial_3 = 0}<br />$$<br />을 만족한다.</p>
+<p data-ke-size="size16">쉬운 설명: &ldquo;부피의 경계는 면이고, 면의 경계는 선인데, 부피를 두 번 경계로 잡으면 항상 0&rdquo;이다.</p>
+<h2 data-ke-size="size26">2. Layer 1 &mdash; Color / Compact $U(1)$: $\mathbb Z_{12}$ 링크 위상</h2>
+<h3 data-ke-size="size23">공리 2.1 (링크 위상 이산화)</h3>
+<p data-ke-size="size16">각 유향 링크 $e=(i\to j)$에 대해<br />$$ k_{ij}\in\mathbb Z_{12},\qquad k_{ji}\equiv -k_{ij}\pmod{12}
+    $$<br />를 둔다. 연속 위상차는<br />$$<br />\Delta\phi_{ij}=\frac{\pi}{6}k_{ij}\in \mathbb R/2\pi\mathbb Z<br />$$<br />로
+    해석한다.</p>
+<h3 data-ke-size="size23">정의 2.2 (플라켓 플럭스 = 이산 곡률)</h3>
+<p data-ke-size="size16">임의의 2-셀 $f\in P$에 대해<br />$$<br />\boxed{Q_f(k)=\sum_{e\in\partial f}\mathrm{sgn}(f,e) \,
+    k_e\pmod{12}}<br />$$<br />를 정의한다. 공리 0.A에 의해 물리적 위상합은<br />$$<br />\boxed{\Phi_f \equiv
+    \frac{\pi}{6}Q_f(k)\pmod{2\pi}}<br />$$<br />로 유일하게 결정된다.</p>
+<h2 data-ke-size="size26">3. 물질(Matter) 섹터: 저에너지 무결함(무플럭스) 상태</h2>
+<h3 data-ke-size="size23">정의 3.1 (사각 무플럭스 패턴)</h3>
+<p data-ke-size="size16">사각 플라켓 $p\in P_4$의 경계 링크 값 4개를 $w=[a,b,c,d]$라 하자(방향 부호
+    포함).<br />$$<br />\boxed{Q(w)=a+b+c+d\equiv 0\pmod{12}}<br />$$<br />를 만족하는 패턴들의 집합을<br />$$<br />\boxed{\mathcal W=
+    \{w\in(\mathbb Z_{12})^4\mid Q(w)\equiv 0 \}}<br />$$<br />로 정의한다.</p>
+<h3 data-ke-size="size23">공리 3.2 (물질 = 저에너지 섹터)</h3>
+<p data-ke-size="size16">동역학은 $Q=0$을 강하게 선호하므로, $Q_p=0$인 사각 플라켓이 지배적인 구성을 물질의 기본형으로 정의한다.</p>
+<h2 data-ke-size="size26">4. 반입자와 동치: 회전 동치 + 반입자 연산</h2>
+<h3 data-ke-size="size23">정의 4.1 (회전 동치 $C_4$)</h3>
+<p data-ke-size="size16">사각 패턴 $w=[a,b,c,d]$에 대해<br />$$<br />\rho([a,b,c,d])=[b,c,d,a],\qquad
+    C_4=\langle\rho\rangle<br />$$<br />로 두고 $C_4$ 궤도는 같은 물리 상태로 본다.</p>
+<h3 data-ke-size="size23">정의 4.2 (반입자 연산 $\mathcal A$)</h3>
+<p data-ke-size="size16">$$<br />\boxed{\mathcal A([a,b,c,d])=[-d,-c,-b,-a]}<br />$$<br />로 정의한다.</p>
+<h2 data-ke-size="size26">5. 3색/3반색: &ldquo;서로 다른 4값&rdquo;이면 예외 없이 3분할</h2>
+<h3 data-ke-size="size23">정의 5.1 (쿼크형/허용 패턴: 완전 distinct)</h3>
+<p data-ke-size="size16">$$<br />\boxed{\mathcal W_{\mathrm{adm}}= \{[a,b,c,d]\in\mathcal W\mid a,b,c,d\
+    \text{distinct}, \{a,b,c,d\} \neq \{ x, -x, y, -y \}\}}<br />$$</p>
+<h3 data-ke-size="size23">정리 5.2 (3색의 유도: 예외 없음)</h3>
+<p data-ke-size="size16">$a,b,c,d$가 모두 서로 다르면 회전군 $C_4$의 작용에 고정점이 존재할 수 없으므로 모든 궤도의 크기는 4이다. 따라서 서로 다른 4개 값의 순열
+    24개는<br />$$<br />24 \xrightarrow{C_4} 24/4=6<br />$$<br />개의 회전 궤도로 분해된다.</p>
+<p data-ke-size="size16">또한 $a,b,c,d$가 서로 다른 경우, $\mathcal A$가 특정 회전 궤도를 자기 자신으로 보내는(자기짝) 특수 대칭이 발생하지 않으며, 6개 궤도는
+    $\mathcal A$에 의해 항상 3쌍으로 짝지어진다:<br />$$<br />\boxed{24\to 6\to 3}<br />$$<br />따라서 색전하 ${r,g,b}$와 반색 ${\bar r,\bar
+    g,\bar b}$가 유도된다.</p>
+<p data-ke-size="size16"><b>쉬운 설명</b>: 4개가 전부 다르면 &ldquo;대칭이 생길 틈이 없어서&rdquo; 예외 케이스가 사라지고, 카운팅은 항상 3색으로 고정된다.</p>
+<h2 data-ke-size="size26">6. Layer 2 &mdash; Spin/$SU(2)$: 곡률각 $\theta_p$와 에너지</h2>
+<h3 data-ke-size="size23">공리 6.1 (프레임과 연결)</h3>
+<ul style="list-style-type: disc;" data-ke-list-type="disc">
+    <li>사이트 프레임: $q_i\in SU(2)$</li>
+    <li>링크 변수: $h_{ij}\in SU(2)$</li>
+    <li>관측 불변 링크:<br />$$<br />V_{ij}=q_i^{-1}h_{ij}q_j<br />$$</li>
+    <li>플라켓 홀로노미:<br />$$<br />W_p=\prod_{(ab)\in\partial p}V_{ab}\in SU(2)<br />$$</li>
+</ul>
+<h3 data-ke-size="size23">정의 6.2 (곡률각 $\theta_p$)</h3>
+<p data-ke-size="size16">$$<br />\boxed{\theta_p=\arccos\left(\frac{\mathrm{Tr}
+    \,W_p}{2}\right)\in[0,\pi]}<br />$$<br />$\mathrm{Tr} \,W_p$가 게이지 불변이므로 $\theta_p$는 관측 가능하다.</p>
+<h2 data-ke-size="size26">7. 바리온(Baryon): 정팔면체 3-셀의 &ldquo;완전 무플럭스 폐합&rdquo;</h2>
+<h3 data-ke-size="size23">정의 7.1 (바리온 뼈대: 3 사각 무플럭스 + 직교 결합)</h3>
+<p data-ke-size="size16">사각 플라켓 $p_x,p_y,p_z\in P_4$ 세 개가 서로 직교 결합하여 정팔면체의 1-스켈레톤(12개 모서리)을
+    이루며,<br />$$<br />\boxed{Q_{p_x}\equiv Q_{p_y}\equiv Q_{p_z}\equiv 0\pmod{12}}<br />$$<br />을 만족할 때 이를 바리온 뼈대라 한다.
+    단, 이 조건만으로 바리온이 성립하는 것은 아니다.
+</p>
+<h3 data-ke-size="size23">정의 7.2 (바리온: 정팔면체 3-셀 경계의 삼각 8면 무플럭스)</h3>
+<p data-ke-size="size16">공리 1.2에 의해, 해당 정팔면체 3-셀 $O$의 경계는 8개의 삼각 플라켓 $f_1,\dots,f_8\in P_3$로 주어진다.
+    <br />이때 다음과 같은 조건을 만족한다면 이 구성은 정팔면체 3-셀의 경계가 모두 무결함인 완결된 3D 폐합 입자(바리온)로 정의한다.
+    $$ \boxed{\forall j\in \{1,\dots,8 \},\quad Q_{f_j}(k)\equiv 0\pmod{12}} $$
+</p>
+<h2 data-ke-size="size26">8. 동역학과 에너지: 선택 원리, 3D 비안키, 결함 이동, 가둠</h2>
+<h3 data-ke-size="size23">8.1 전체 해밀토니안</h3>
+<p data-ke-size="size16">$$H=H_{SU(2)}+H_{\text{flux}}$$</p>
+<h4 data-ke-size="size20">(1) $SU(2)$ 곡률 에너지</h4>
+<p data-ke-size="size16">$$<br />\boxed{<br />H_{SU(2)}=-J\sum_p\frac{\mathrm{Tr}
+    \,W_p}{2}<br />=-J\sum_p\cos\theta_p<br />}<br />$$</p>
+<h4 data-ke-size="size20">(2) $\mathbb Z_{12}$ 플럭스(결함) 비용</h4>
+<p data-ke-size="size16">$$<br />\boxed{<br />H_{\text{flux}}<br />=\mu\left(<br />\sum_{p\in
+    P_4}(1-\delta_{Q_p,0})<br />+\sum_{f\in P_3}(1-\delta_{Q_f,0})<br />\right)<br />}<br />$$<br />$\mu$가 크면 결함이 억제되고
+    $Q=0$ 저에너지 섹터가 선택된다.</p>
+<h3 data-ke-size="size23">8.2 3D 비안키(보존)와 결함면의 경계</h3>
+<h4 data-ke-size="size20">정의 8.1 (결함면)</h4>
+<p data-ke-size="size16">$Q_f\neq 0$인 2-셀들의 집합을 &ldquo;결함면(defect surface)&rdquo;이라고 부른다.</p>
+<h4 data-ke-size="size20">정리 8.2 (3D 비안키: &lsquo;경계의 경계 = 0&rsquo;)</h4>
+<p data-ke-size="size16">정팔면체 3-셀 구조를 채택하면 $\partial_2\circ\partial_3=0$이므로, 소스(색원)가 없는 영역에서는 결함면이 임의로 끝날 수 없다.<br />즉,
+    결함면은</p>
+<ul style="list-style-type: disc;" data-ke-list-type="disc">
+    <li>닫힌 면을 이루거나(경계 없음),</li>
+    <li>또는 경계가 존재한다면 그 경계는 &ldquo;소스/싱크(색원)&rdquo;로 해석되어야 한다.</li>
+</ul>
+<p data-ke-size="size16"><b>쉬운 설명</b>: 결함면은 종이처럼 찢어진 채로 공중에서 끝나지 못하고, 반드시 닫히거나 &ldquo;끝점(색원)&rdquo;을 가져야 한다.</p>
+<h3 data-ke-size="size23">8.3 결함 이동(Flux-preserving local move)의 엄밀화</h3>
+<h4 data-ke-size="size20">정의 8.3 (결함 이동의 의미)</h4>
+<p data-ke-size="size16">로컬 업데이트는 결함면 자체를 변화시키되, 색원(경계)은 만들지 않거나(보존), 쌍으로만 생성/소멸하도록 제한한다.</p>
+<ul style="list-style-type: disc;" data-ke-list-type="disc">
+    <li>(게이지) $k\to k+\delta s$: $Q_f$ 불변</li>
+    <li>(결함 이동) 결함면의 위치/형태만 국소적으로 변하며 경계는 보존</li>
+    <li>(쌍생성) 경계가 없는 닫힌 결함면(또는 $+Q/-Q$ 쌍)을 비용을 치르고 생성/소멸</li>
+</ul>
+<p data-ke-size="size16">이때 &ldquo;경계 보존&rdquo;은 3-셀 구조에서 가장 자연스럽게 정의된다.</p>
+<h3 data-ke-size="size23">8.4 가둠(Confinement)의 정의: 경계-스트링 텐션</h3>
+<h4 data-ke-size="size20">정의 8.4 (색원 = 결함면의 경계)</h4>
+<p data-ke-size="size16">색원(color source)은 결함면 $S$의 경계 $\partial S$로 정의된다.<br />두 색원 사이의 분리는 &ldquo;경계를 가진 결함면&rdquo;을
+    강제한다.</p>
+<h4 data-ke-size="size20">정의 8.5 (가둠 = 선형 비용/스트링 텐션)</h4>
+<p data-ke-size="size16">두 색원을 거리 $R$만큼 분리할 때 필요한 최소 결함면 $S$의 비용을 $E(R)$라 하자. Qaether에서 가둠은<br />$$<br />\boxed{E(R)\
+    \sim\ \sigma R\qquad (R\to\infty,\ \sigma&gt;0)}<br />$$<br />를 만족하는 성질로 정의된다.</p>
+<p data-ke-size="size16">여기서 결함면 비용은 $H_{\text{flux}}$로부터 대략<br />$$<br />E(R)\approx \mu\cdot
+    |S_{\min}(R)|<br />$$<br />(최소 결함면의 &ldquo;면적&rdquo;에 비례)로 주어지며, 최소 면적이 $R$에 비례하면 선형 퍼텐셜이 나온다.</p>
