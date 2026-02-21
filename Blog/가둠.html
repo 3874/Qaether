@@ -1,0 +1,219 @@
+<script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], } };</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<h3 data-ke-size="size23"><b>Soft Flux Energy, Defect 2-Chains, and a Linear Potential from Spacetime Worldsheets</b>
+</h3>
+<p data-ke-size="size16"><b>Abstract</b><br />We formulate a confinement lower bound in Qaether theory, a discrete
+    gauge-like model on a 3-complex built from tetrahedra and octahedra, with $\mathbb{Z}_{12}$ link variables. From an
+    oriented link 1-cochain $k\in C^1(X;\mathbb{Z}_{12})$, we define plaquette flux (discrete curvature) $Q=\delta k\in
+    C^2(X;\mathbb{Z}_{12})$. Replacing a hard constraint $Q=0$ by a soft flux energy $\epsilon_x(Q_x)$ satisfying
+    $\epsilon_x(0)=0$ and $\epsilon_x(Q\neq0)\ge\epsilon_{\min}&gt;0$, we obtain a universal energy lower bound
+    proportional to the number of nonzero-flux plaquettes. The key topological input is that defects cannot terminate
+    arbitrarily in the bulk: not merely because $\partial\partial=0$ always holds, but because the field-derived
+    relation $Q=\delta k$ forces the discrete Bianchi identity $\delta Q=\delta^2 k=0$. Identifying cochains and chains
+    via the oriented plaquette basis, this becomes $\partial S_Q=0$ for the corresponding defect 2-chain $S_Q$, implying
+    closed defect shells in the source-free sector. In spacetime $\mathcal{X}=X\times{0,1,\dots,T}$, inserting a static
+    quark&ndash;antiquark pair of $\mathbb{Z}_{12}$ charge $\pm q$ is axiomatized by the existence of an open defect
+    worldsheet $\Sigma\in C_2(\mathcal{X};\mathbb{Z}_{12})$ with $\partial \Sigma=W_{R,T}$, where $W_{R,T}\in
+    C_1(\mathcal{X};\mathbb{Z}_{12})$ is the oriented sum of worldlines. A slice-by-slice cut argument yields
+    $|\mathrm{supp}(\Sigma)|\ge cRT$, hence $E(R,T)\ge \sigma RT$ and the static potential
+    $V(R)=\lim_{T\to\infty}E(R,T)/T\ge \sigma R$ with $\sigma=\epsilon_{\min}c&gt;0$. We also bound the minimal
+    nucleation energy for a nontrivial closed defect shell, leading to a &ldquo;nucleation gap + area term&rdquo; bound
+    $E(R,T)\ge E_{\mathrm{break}}+\sigma RT$. While the constant $E_{\mathrm{break}}$ vanishes in the $T\to\infty$
+    extraction of $V(R)$, it quantifies vacuum stability and the minimal cost to create a defect shell.</p>
+<hr data-ke-style="style1" />
+<h3 data-ke-size="size23"><b>1. Introduction</b></h3>
+<p data-ke-size="size16">Confinement in non-abelian gauge theory is traditionally diagnosed by the Wilson-loop area law
+    and a linearly rising static potential. In lattice formulations, strong-coupling expansions naturally produce
+    surfaces spanning Wilson loops, suggesting a geometric route to confinement. Qaether theory is a discrete model with
+    $\mathbb{Z}_{12}$ link variables defined on a mixed tetrahedral&ndash;octahedral 3-complex, motivated as an infrared
+    effective description in which flux defects carry energy.</p>
+<p data-ke-size="size16">This paper isolates a minimal set of assumptions under which a rigorous lower bound implying
+    linear confinement follows:</p>
+<ol style="list-style-type: decimal;" data-ke-list-type="decimal">
+    <li><b>Soft flux gap:</b> any nonzero plaquette flux has energy at least $\epsilon_{\min}&gt;0$.</li>
+    <li><b>Topological constraint from field-derived curvature:</b> $Q=\delta k$ implies $\delta Q=0$ (discrete
+        Bianchi), so defects are closed in the absence of sources.</li>
+    <li><b>Source insertion forces an open worldsheet:</b> external static charges are represented by worldlines $W$,
+        and defects must form a worldsheet $\Sigma$ with $\partial\Sigma=W$.</li>
+    <li><b>Geometric lower bound on spanning area:</b> any $\Sigma$ bounding two separated worldlines has
+        $|\mathrm{supp}(\Sigma)|\gtrsim RT$.</li>
+</ol>
+<p data-ke-size="size16">From these, the linear potential lower bound follows.</p>
+<p data-ke-size="size16"><b>Important conceptual point.</b> The statement &ldquo;defects cannot end in the bulk&rdquo;
+    does not follow from $\partial\partial=0$ alone (which is a tautology for all chains). It follows because $Q$ is not
+    an arbitrary 2-chain but a curvature cochain derived from a link cochain, $Q=\delta k$, which forces $\delta Q=0$.
+</p>
+<hr data-ke-style="style1" />
+<h3 data-ke-size="size23"><b>2. Lattice 3-Complex and $\mathbb{Z}_{12}$ Link Variables</b></h3>
+<p data-ke-size="size16"><b>Axiom 2.1 (3-complex)</b><br />Space is an oriented finite
+    3-complex<br />$$<br />X=(V,E,P,C_3),\qquad P=P_3\cup P_4,<br />$$<br />where $P_3$ is the set of triangular
+    plaquettes and $P_4$ the set of square plaquettes. Each 3-cell in $C_3$ is either a tetrahedron or an octahedron (as
+    in an FCC-type mixed decomposition).</p>
+<p data-ke-size="size16"><b>Axiom 2.2 ($\mathbb{Z}_{12}$ link variables)</b><br />To each oriented edge $e=(i\to j)\in
+    E$ assign<br />$$<br />k(e)=k_{ij}\in\mathbb{Z}_{12},\qquad k_{ji}\equiv -k_{ij}\ (\mathrm{mod}\
+    12).<br />$$<br />Interpret the phase difference as $\Delta\phi_{ij}=\frac{\pi}{6}k_{ij}\ (\mathrm{mod}\ 2\pi)$.</p>
+<p data-ke-size="size16"><b>Definition 2.3 (Plaquette flux / discrete curvature)</b><br />Let $k\in
+    C^1(X;\mathbb{Z}_{12})$. Define the plaquette flux cochain<br />$$<br />\boxed{Q:=\delta k\in
+    C^2(X;\mathbb{Z}_{12})}.<br />$$<br />For each oriented plaquette $x\in P$,<br />$$<br />\boxed{Q_x=\langle
+    Q,x\rangle=\sum_{e\in\partial x}\mathrm{sgn}(x,e)k(e)\ (\mathrm{mod}\ 12)}.<br />$$<br />$Q_x=0$ is the flux-free
+    (&ldquo;closed&rdquo;) state.</p>
+<hr data-ke-style="style1" />
+<h3 data-ke-size="size23"><b>3. Soft Flux Hamiltonian</b></h3>
+<p data-ke-size="size16"><b>Axiom 3.1 (Soft flux energy)</b><br />For each plaquette $x\in P$, choose
+    $\epsilon_x:\mathbb{Z}_{12}\to\mathbb{R}_{\ge0}$ such that:</p>
+<ol style="list-style-type: decimal;" data-ke-list-type="decimal">
+    <li>$\epsilon_x(0)=0$,</li>
+    <li>$Q\neq0 \Rightarrow \epsilon_x(Q)\ge \epsilon_{\min}&gt;0$,</li>
+    <li>$\epsilon_x(Q)=\epsilon_x(12-Q)$ (charge conjugation symmetry, optional but natural).</li>
+</ol>
+<p data-ke-size="size16">Define<br />$$<br />\boxed{\epsilon_{\min}:=\min_{x\in P}\min_{Q\neq0}\epsilon_x(Q) &gt;
+    0.}<br />$$</p>
+<p data-ke-size="size16"><b>Definition 3.2 (Soft flux
+        Hamiltonian)</b><br />$$<br />\boxed{H_{\mathrm{flux}}^{\mathrm{soft}}(k)=\sum_{x\in
+    P}\epsilon_x\bigl(Q_x(k)\bigr)}.<br />$$<br />_Example:_ $\epsilon(Q)=\mu\bigl(1-\cos(2\pi Q/12)\bigr)$ yields
+    $\epsilon_{\min}=\mu(1-\cos(\pi/6))&gt;0$.</p>
+<hr data-ke-style="style1" />
+<h3 data-ke-size="size23"><b>4. Defect 2-Chains and the Discrete Bianchi Identity</b></h3>
+<p data-ke-size="size16"><b>4.1 Chain&ndash;cochain identification (basis-level)</b><br />Fix the oriented plaquette
+    basis of $C_2(X;\mathbb{Z}_{12})$ and the dual basis of $C^2(X;\mathbb{Z}_{12})$. This gives a canonical
+    coefficient-wise identification:<br />$$<br />C^2(X;\mathbb{Z}_{12})\ \cong\
+    C_2(X;\mathbb{Z}_{12}),<br />$$<br />sending a 2-cochain $Q$ to the 2-chain with the same coefficients in the
+    plaquette basis.</p>
+<p data-ke-size="size16"><b>Definition 4.1 (Defect 2-chain)</b><br />Let $Q=\delta k$. Define the defect
+    2-chain<br />$$<br />\boxed{S_Q:=\sum_{x\in P} Q_x x\ \in C_2(X;\mathbb{Z}_{12}).}<br />$$<br />Define the defect
+    support and defect &ldquo;area&rdquo;:<br />$$<br />\mathrm{supp}(S_Q):={x\in P: Q_x\neq0},\qquad
+    |S_Q|:=|\mathrm{supp}(S_Q)|.<br />$$</p>
+<p data-ke-size="size16"><b>Theorem 4.2 (Discrete Bianchi identity)</b><br />Since $Q=\delta
+    k$,<br />$$<br />\boxed{\delta Q=\delta^2 k=0\in C^3(X;\mathbb{Z}_{12}).}<br />$$<br />Equivalently, for every
+    3-cell $c\in C_3$,<br />$$<br />\langle \delta Q,c\rangle=\langle Q,\partial c\rangle=\sum_{x\subset\partial
+    c}\mathrm{sgn}(c,x)Q_x=0.<br />$$</p>
+<p data-ke-size="size16"><b>Corollary 4.3 (Source-free closure of defects)</b><br />Under the identification above,
+    $\delta Q=0$ implies<br />$$<br />\boxed{\partial S_Q=0.}<br />$$<br />Hence, in the absence of external sources,
+    defects form closed shells (no bulk endpoints).</p>
+<p data-ke-size="size16">_Why this matters:_ $\partial\partial=0$ is always true for any chain and does not constrain
+    where a defect could end. The constraint arises only because the defect is curvature derived from a link field:
+    $Q=\delta k\Rightarrow \delta Q=0$.</p>
+<hr data-ke-style="style1" />
+<h3 data-ke-size="size23"><b>5. Universal Energy Lower Bound from Defect Area</b></h3>
+<p data-ke-size="size16"><b>Theorem 5.1 (Energy bound)</b><br />$$<br />\boxed{H_{\mathrm{flux}}^{\mathrm{soft}}(k)\
+    \ge\ \epsilon_{\min} |S_Q|.}<br />$$</p>
+<p data-ke-size="size16"><b>Proof.</b> For each $x\in\mathrm{supp}(S_Q)$, $Q_x\neq0$, hence $\epsilon_x(Q_x)\ge
+    \epsilon_{\min}$. Summing over plaquettes gives the bound. $\square$</p>
+<hr data-ke-style="style1" />
+<h3 data-ke-size="size23"><b>6. Source-Free Sector: Minimal Closed Shells and Nucleation Gap</b></h3>
+<p data-ke-size="size16">To create defects in vacuum, one must nucleate a nontrivial closed 2-cycle/shell.</p>
+<p data-ke-size="size16"><b>Assumption 6.1 (No smaller closed shells than cell boundaries)</b><br />We assume the
+    minimal nontrivial closed defect shell in the triangular sector is realised by the boundary of a single 3-cell (a
+    standard &ldquo;local minimal sphere&rdquo; assumption for this mixed complex). Concretely:</p>
+<ul style="list-style-type: disc;" data-ke-list-type="disc">
+    <li><b>Generic sector:</b> the boundary of a tetrahedron (4 triangles) is allowed.</li>
+    <li><b>Octahedral-only sector</b> (optional strengthening): tetrahedral shells are forbidden/suppressed, and the
+        minimal allowed shell is the boundary of an octahedron (8 triangles).</li>
+</ul>
+<p data-ke-size="size16">This assumption can be replaced by a purely topological constant $N_{\min}$ defined as
+    &ldquo;the minimal number of triangular plaquettes in any nonzero closed 2-chain allowed in the sector.&rdquo;</p>
+<p data-ke-size="size16"><b>Lemma 6.2 (Minimal shell size)</b><br />Let $N_{\min}$ denote the minimal number of
+    plaquettes in any allowed nonzero closed defect shell. Under Assumption 6.1:<br />$$<br />\boxed{N_{\min}=4\ \
+    (\text{generic}),\qquad N_{\min}=8\ \ (\text{octahedral-only}).}<br />$$</p>
+<p data-ke-size="size16"><b>Corollary 6.3 (Nucleation energy gap)</b><br />Any nontrivial closed defect shell costs at
+    least<br />$$<br />\boxed{E_{\mathrm{break}}\ \ge\ N_{\min}\epsilon_{\min}}<br />$$<br />i.e.,
+    $E_{\mathrm{break}}\ge 4\epsilon_{\min}$ (generic) or $E_{\mathrm{break}}\ge 8\epsilon_{\min}$ (octahedral-only).
+</p>
+<hr data-ke-style="style1" />
+<h3 data-ke-size="size23"><b>7. Spacetime Formulation and External Static Sources</b></h3>
+<p data-ke-size="size16"><b>Definition 7.1 (Spacetime
+        complex)</b><br />Let<br />$$<br />\boxed{\mathcal{X}:=X\times{0,1,\dots,T}}<br />$$<br />be the discrete
+    spacetime complex. Cochains/chains on $\mathcal{X}$ are defined similarly.</p>
+<p data-ke-size="size16"><b>Definition 7.2 (Static sources as $\mathbb{Z}_{12}$ worldlines)</b><br />Fix a charge
+    $q\in\mathbb{Z}_{12}$ (often $q=1$). A static quark&ndash;antiquark pair separated by spatial distance $R$ is
+    represented by an oriented 1-chain<br />$$<br />\boxed{W_{R,T}\in
+    C_1(\mathcal{X};\mathbb{Z}_{12})}<br />$$<br />given by the sum of two time-directed worldlines with coefficients
+    $+q$ and $-q$ (and opposite orientations as appropriate). This ensures $\partial W_{R,T}=0$ for periodic time
+    boundary conditions, or gives boundary insertions at the time ends in an open-time cylinder formulation.</p>
+<p data-ke-size="size16"><b>Axiom 7.3 (Source forcing: open defect worldsheet)</b><br />In the presence of the external
+    source $W_{R,T}$, admissible configurations include a defect worldsheet<br />$$<br />\boxed{\Sigma\in
+    C_2(\mathcal{X};\mathbb{Z}_{12})\quad \text{such that}\quad \partial \Sigma=W_{R,T}.}<br />$$<br />$\Sigma$ is
+    interpreted as the set (with $\mathbb{Z}_{12}$ coefficients) of plaquettes carrying nonzero flux that must span the
+    source worldlines.</p>
+<p data-ke-size="size16">This axiom is the discrete analogue of the strong-coupling/Wilson-loop &ldquo;surface spanning
+    the loop&rdquo; structure: the source cannot be realised without an attached flux sheet whose boundary is the
+    source.</p>
+<hr data-ke-style="style1" />
+<h3 data-ke-size="size23"><b>8. Cut Argument: Lower Bound on Spanning Worldsheet Area</b></h3>
+<p data-ke-size="size16">We now bound the minimal number of plaquettes needed for any $\Sigma$ with
+    $\partial\Sigma=W_{R,T}$.</p>
+<p data-ke-size="size16"><b>Lemma 8.1 (Slice-by-slice cut bound)</b><br />There exists a lattice-dependent constant
+    $c&gt;0$ such that for any $\Sigma\in C_2(\mathcal{X};\mathbb{Z}_{12})$ with
+    $\partial\Sigma=W_{R,T}$,<br />$$<br />\boxed{|\Sigma|\ \ge\ c R T,}<br />$$<br />where
+    $|\Sigma|:=|\mathrm{supp}(\Sigma)|$ counts plaquettes with nonzero coefficient.</p>
+<p data-ke-size="size16"><b>Proof (standard cut argument, with explicit constant).</b><br />For each time slice $t$,
+    intersect $\Sigma$ with the slice. The boundary condition $\partial\Sigma=W_{R,T}$ forces the slice intersection to
+    include a &ldquo;cut&rdquo; that connects the two source positions, hence requires at least $\ge R$ units of spatial
+    separation measure (graph distance). Each plaquette can contribute to the intersection of only a uniformly bounded
+    number $\eta&lt;\infty$ of slices/cut units (a local combinatorial bound depending on maximal incidence/degree and
+    allowed orientations). Therefore the total number of plaquettes must satisfy<br />$$<br />|\Sigma|\ \ge\
+    \frac{1}{\eta}RT.<br />$$<br />Set $c:=1/\eta$. $\square$</p>
+<hr data-ke-style="style1" />
+<h3 data-ke-size="size23"><b>9. Main Confinement Theorem</b></h3>
+<p data-ke-size="size16"><b>Theorem 9.1 (Area-law lower bound and string tension)</b><br />Let $Q=\delta k$ on
+    $\mathcal{X}$, let $\Sigma$ be a defect worldsheet satisfying $\partial\Sigma=W_{R,T}$, and let
+    $H_{\mathrm{flux}}^{\mathrm{soft}}$ be the soft flux Hamiltonian. Then<br />$$<br />\boxed{E(R,T)\ \ge\
+    H_{\mathrm{flux}}^{\mathrm{soft}}(k)\ \ge\ \epsilon_{\min}|\Sigma|\ \ge\ \epsilon_{\min}cRT.}<br />$$<br />Define
+    the string tension<br />$$<br />\boxed{\sigma:=\epsilon_{\min}c\
+    &gt;0.}<br />$$<br />Then<br />$$<br />\boxed{E(R,T)\ \ge\ \sigma RT.}<br />$$</p>
+<p data-ke-size="size16"><b>Corollary 9.2 (Linear confinement potential)</b><br />Define the static potential
+    by<br />$$<br />V(R):=\lim_{T\to\infty}\frac{E(R,T)}{T}.<br />$$<br />Then<br />$$<br />\boxed{V(R)\ \ge\ \sigma
+    R,}<br />$$<br />i.e., the potential grows at least linearly with separation: confinement.</p>
+<hr data-ke-style="style1" />
+<h3 data-ke-size="size23"><b>10. Nucleation Gap + Area Term (&ldquo;Jump + Linear&rdquo; refined statement)</b></h3>
+<p data-ke-size="size16">The source-free nucleation gap quantified by $E_{\mathrm{break}}$ combines with the spanning
+    area cost.</p>
+<p data-ke-size="size16"><b>Theorem 10.1 (Nucleation + area lower bound)</b><br />Assume the vacuum sector is fully
+    closed (no defects) and that creating defects requires nucleating an allowed closed shell. Then the energy (or
+    Euclidean free energy/action, depending on the implementation of the static source)
+    satisfies<br />$$<br />\boxed{E(R,T)\ \ge\ E_{\mathrm{break}}+\sigma RT,}<br />\qquad E_{\mathrm{break}}\ge
+    N_{\min}\epsilon_{\min}.<br />$$</p>
+<p data-ke-size="size16"><b>Remark (what survives in $V(R)$).</b><br />When extracting $V(R)$ via
+    $T\to\infty$,<br />$$<br />\frac{E_{\mathrm{break}}}{T}\to 0,<br />$$<br />so the linear term determines the
+    asymptotic potential, while $E_{\mathrm{break}}$ captures vacuum stability and the minimum cost to nucleate a defect
+    shell before a long worldsheet can be formed.</p>
+<hr data-ke-style="style1" />
+<h3 data-ke-size="size23"><b>11. Discussion and Outlook</b></h3>
+<p data-ke-size="size16"><b>What is robust here.</b> The confinement lower bound uses only:</p>
+<ol style="list-style-type: decimal;" data-ke-list-type="decimal">
+    <li>A strictly positive minimal flux cost $\epsilon_{\min}&gt;0$.</li>
+    <li>The field-derived Bianchi identity $\delta Q=0$ (from $Q=\delta k$).</li>
+    <li>An axiomatized source coupling that forces an open worldsheet.</li>
+    <li>A purely combinatorial area lower bound $|\Sigma|\gtrsim RT$.</li>
+</ol>
+<p data-ke-size="size16">No detailed functional form of $\epsilon(Q)$ is required beyond a gap at nonzero flux.</p>
+<p data-ke-size="size16"><b>Where the model-dependent content lives.</b></p>
+<ul style="list-style-type: disc;" data-ke-list-type="disc">
+    <li>The value of $c$ (hence $\sigma$) is geometric/combinatorial and depends on the lattice/complex incidence
+        structure.</li>
+    <li>The minimal shell size $N_{\min}$ depends on which defect shells are dynamically allowed (generic vs
+        octahedral-only sector).</li>
+    <li>A fully dynamical treatment of quark pair creation would modify the long-distance behaviour via string breaking;
+        here we establish a lower bound in the static-source setting.</li>
+</ul>
+<p data-ke-size="size16"><b>Future directions.</b></p>
+<ul style="list-style-type: disc;" data-ke-list-type="disc">
+    <li>Make Axiom 7.3 derivable from an explicit source coupling term in the Qaether action/Hamiltonian (e.g., a
+        $\mathbb{Z}_{12}$ Wilson insertion).</li>
+    <li>Compute or bound $c$ explicitly for the specific tetrahedral&ndash;octahedral complex used in Qaether.</li>
+    <li>Extend to dynamical matter and identify when/if screening weakens the bound.</li>
+    <li>Explore continuum scaling limits and possible emergence of effective string actions.</li>
+</ul>
+<p data-ke-size="size16"><b>References</b></p>
+<ol style="list-style-type: decimal;" data-ke-list-type="decimal">
+    <li>K. Wilson, &ldquo;Confinement of quarks,&rdquo; Phys. Rev. D 10 (1974) 2445.</li>
+    <li>J. B. Kogut and L. Susskind, &ldquo;Hamiltonian formulation of Wilson&rsquo;s lattice gauge theories,&rdquo;
+        Phys. Rev. D 11 (1975) 395.</li>
+    <li>R. Balian, J. M. Drouffe, and C. Itzykson, &ldquo;Gauge fields on a lattice. II,&rdquo; Phys. Rev. D 11 (1975)
+        2098.</li>
+    <li>F. J. Wegner, &ldquo;Duality in generalized Ising models,&rdquo; J. Math. Phys. 12 (1971) 2259.</li>
+    <li>G. &rsquo;t Hooft, &ldquo;On the phase transition towards permanent quark confinement,&rdquo; Nucl. Phys. B 138
+        (1978) 1.</li>
+    <li>A. M. Polyakov, &ldquo;Compact gauge fields and the infrared catastrophe,&rdquo; Phys. Lett. B 59 (1975) 82.
+    </li>
+</ol>
