@@ -1,219 +1,205 @@
 <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], } };</script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<h3 data-ke-size="size23"><b>Soft Flux Energy, Defect 2-Chains, and a Linear Potential from Spacetime Worldsheets</b>
-</h3>
-<p data-ke-size="size16"><b>Abstract</b><br />We formulate a confinement lower bound in Qaether theory, a discrete
-    gauge-like model on a 3-complex built from tetrahedra and octahedra, with $\mathbb{Z}_{12}$ link variables. From an
-    oriented link 1-cochain $k\in C^1(X;\mathbb{Z}_{12})$, we define plaquette flux (discrete curvature) $Q=\delta k\in
-    C^2(X;\mathbb{Z}_{12})$. Replacing a hard constraint $Q=0$ by a soft flux energy $\epsilon_x(Q_x)$ satisfying
-    $\epsilon_x(0)=0$ and $\epsilon_x(Q\neq0)\ge\epsilon_{\min}&gt;0$, we obtain a universal energy lower bound
-    proportional to the number of nonzero-flux plaquettes. The key topological input is that defects cannot terminate
-    arbitrarily in the bulk: not merely because $\partial\partial=0$ always holds, but because the field-derived
-    relation $Q=\delta k$ forces the discrete Bianchi identity $\delta Q=\delta^2 k=0$. Identifying cochains and chains
-    via the oriented plaquette basis, this becomes $\partial S_Q=0$ for the corresponding defect 2-chain $S_Q$, implying
-    closed defect shells in the source-free sector. In spacetime $\mathcal{X}=X\times{0,1,\dots,T}$, inserting a static
-    quark&ndash;antiquark pair of $\mathbb{Z}_{12}$ charge $\pm q$ is axiomatized by the existence of an open defect
-    worldsheet $\Sigma\in C_2(\mathcal{X};\mathbb{Z}_{12})$ with $\partial \Sigma=W_{R,T}$, where $W_{R,T}\in
-    C_1(\mathcal{X};\mathbb{Z}_{12})$ is the oriented sum of worldlines. A slice-by-slice cut argument yields
-    $|\mathrm{supp}(\Sigma)|\ge cRT$, hence $E(R,T)\ge \sigma RT$ and the static potential
-    $V(R)=\lim_{T\to\infty}E(R,T)/T\ge \sigma R$ with $\sigma=\epsilon_{\min}c&gt;0$. We also bound the minimal
-    nucleation energy for a nontrivial closed defect shell, leading to a &ldquo;nucleation gap + area term&rdquo; bound
-    $E(R,T)\ge E_{\mathrm{break}}+\sigma RT$. While the constant $E_{\mathrm{break}}$ vanishes in the $T\to\infty$
-    extraction of $V(R)$, it quantifies vacuum stability and the minimal cost to create a defect shell.</p>
-<hr data-ke-style="style1" />
-<h3 data-ke-size="size23"><b>1. Introduction</b></h3>
-<p data-ke-size="size16">Confinement in non-abelian gauge theory is traditionally diagnosed by the Wilson-loop area law
-    and a linearly rising static potential. In lattice formulations, strong-coupling expansions naturally produce
-    surfaces spanning Wilson loops, suggesting a geometric route to confinement. Qaether theory is a discrete model with
-    $\mathbb{Z}_{12}$ link variables defined on a mixed tetrahedral&ndash;octahedral 3-complex, motivated as an infrared
-    effective description in which flux defects carry energy.</p>
-<p data-ke-size="size16">This paper isolates a minimal set of assumptions under which a rigorous lower bound implying
-    linear confinement follows:</p>
-<ol style="list-style-type: decimal;" data-ke-list-type="decimal">
-    <li><b>Soft flux gap:</b> any nonzero plaquette flux has energy at least $\epsilon_{\min}&gt;0$.</li>
-    <li><b>Topological constraint from field-derived curvature:</b> $Q=\delta k$ implies $\delta Q=0$ (discrete
-        Bianchi), so defects are closed in the absence of sources.</li>
-    <li><b>Source insertion forces an open worldsheet:</b> external static charges are represented by worldlines $W$,
-        and defects must form a worldsheet $\Sigma$ with $\partial\Sigma=W$.</li>
-    <li><b>Geometric lower bound on spanning area:</b> any $\Sigma$ bounding two separated worldlines has
-        $|\mathrm{supp}(\Sigma)|\gtrsim RT$.</li>
-</ol>
-<p data-ke-size="size16">From these, the linear potential lower bound follows.</p>
-<p data-ke-size="size16"><b>Important conceptual point.</b> The statement &ldquo;defects cannot end in the bulk&rdquo;
-    does not follow from $\partial\partial=0$ alone (which is a tautology for all chains). It follows because $Q$ is not
-    an arbitrary 2-chain but a curvature cochain derived from a link cochain, $Q=\delta k$, which forces $\delta Q=0$.
+<h3 data-ke-size="size23">소프트 플럭스 에너지, 쌍대 결함 세계면, 그리고 시공간 세계면으로부터의 선형 퍼텐셜</h3>
+<p data-ke-size="size16">&nbsp;</p>
+<h2 data-ke-size="size26">Abstract</h2>
+<p data-ke-size="size16">$\mathbb Z_{12}$ 링크 변수를 가진 혼합 사면체-팔면체 (FCC 유형) 세포 분할(cellulation) $X$ 상의 이산 게이지형 모델인 Qaether
+    이론에서 가둠(confinement) 하한을 공식화하고자 한다.
+    링크 1-공사슬(cochain) $k \in C^{1}(X;\mathbb Z_{12})$은 플라켓(plaquette) 곡률 $Q = \delta k \in C^{2}(X;\mathbb Z_{12})$을
+    정의한다.
+    강한 제약 조건 $Q=0$을 균일한 갭(gap) $\epsilon_p(Q \neq 0) \ge \epsilon_{\min} &gt; 0$을
+    갖는 소프트 플럭스 에너지(soft flux energy) $\epsilon_p(Q_p)$로 대체함으로써, 0이 아닌 플럭스를 가진 플라켓의 수에 비례하는 보편적인 하한을 얻는다.</p>
+<p data-ke-size="size16">핵심 위상학적 입력은 (소스가 있는) 이산 비앙키 항등식(discrete Bianchi identity)이다. 소스가 없는 구역에서 $Q=\delta k$는 $\delta
+    Q=0$을 의미한다. 올바른 기하학적 닫힘(closure) 진술은 세포 쌍대 복합체(cellular dual complex) $X^{\star}$에서 얻어진다: 2-공사슬의 쌍대(dual)는 3차원에서는
+    1-사슬, 4차원 시공간에서는 2-사슬이다. 결과적으로 $\delta Q=0$은 $\partial(\star Q)=0$을 의미한다 (3차원에서는 닫힌 쌍대 결함 루프, 4차원에서는 닫힌 쌍대 결함 세계면).
 </p>
+<p data-ke-size="size16">$Q=\delta k$와 모순되지 않게 외부 정적 전하를 표현하기 위해, $\delta s = J$를 만족하는 시공간 $\mathcal X = X \times
+    \{0,\dots,T\}$ 상의 배경 &ldquo;디랙 시트(Dirac sheet)&rdquo; $s \in C^{2}(\mathcal X;\mathbb Z_{12})$를 도입하고, 물리적 곡률을 $Q =
+    \delta k + s$로 정의한다. 그러면 $\delta Q = J$가 되며, 쌍대성에 의해 $\partial(\star Q) = \star J = W$가 된다. 여기서 $W$는 소스 세계선
+    사슬(source worldline chain)이다. 이는 열린 세계면 경계 조건을 공리적인 것이 아니라 유도된 것으로 만든다. 슬라이스 단위 컷(cut) 논증은 $|\mathrm{supp}(\star Q)|
+    \ge cRT$를 제공하며, 따라서 $\sigma = \epsilon_{\min}c &gt; 0$에 대해 $E(R,T) \ge \sigma RT$ 및 선형 정적 퍼텐셜 $V(R) \ge \sigma R$을
+    얻는다. 우리는 또한 최소 닫힌 껍질 핵생성 비용 $E_{\mathrm{break}} \ge N_{\min}\epsilon_{\min}$을 분리하여, 개선된 &ldquo;갭 + 선형&rdquo; 하한인
+    $E(R,T) \ge E_{\mathrm{break}} + \sigma RT$를 도출한다.</p>
 <hr data-ke-style="style1" />
-<h3 data-ke-size="size23"><b>2. Lattice 3-Complex and $\mathbb{Z}_{12}$ Link Variables</b></h3>
-<p data-ke-size="size16"><b>Axiom 2.1 (3-complex)</b><br />Space is an oriented finite
-    3-complex<br />$$<br />X=(V,E,P,C_3),\qquad P=P_3\cup P_4,<br />$$<br />where $P_3$ is the set of triangular
-    plaquettes and $P_4$ the set of square plaquettes. Each 3-cell in $C_3$ is either a tetrahedron or an octahedron (as
-    in an FCC-type mixed decomposition).</p>
-<p data-ke-size="size16"><b>Axiom 2.2 ($\mathbb{Z}_{12}$ link variables)</b><br />To each oriented edge $e=(i\to j)\in
-    E$ assign<br />$$<br />k(e)=k_{ij}\in\mathbb{Z}_{12},\qquad k_{ji}\equiv -k_{ij}\ (\mathrm{mod}\
-    12).<br />$$<br />Interpret the phase difference as $\Delta\phi_{ij}=\frac{\pi}{6}k_{ij}\ (\mathrm{mod}\ 2\pi)$.</p>
-<p data-ke-size="size16"><b>Definition 2.3 (Plaquette flux / discrete curvature)</b><br />Let $k\in
-    C^1(X;\mathbb{Z}_{12})$. Define the plaquette flux cochain<br />$$<br />\boxed{Q:=\delta k\in
-    C^2(X;\mathbb{Z}_{12})}.<br />$$<br />For each oriented plaquette $x\in P$,<br />$$<br />\boxed{Q_x=\langle
-    Q,x\rangle=\sum_{e\in\partial x}\mathrm{sgn}(x,e)k(e)\ (\mathrm{mod}\ 12)}.<br />$$<br />$Q_x=0$ is the flux-free
-    (&ldquo;closed&rdquo;) state.</p>
-<hr data-ke-style="style1" />
-<h3 data-ke-size="size23"><b>3. Soft Flux Hamiltonian</b></h3>
-<p data-ke-size="size16"><b>Axiom 3.1 (Soft flux energy)</b><br />For each plaquette $x\in P$, choose
-    $\epsilon_x:\mathbb{Z}_{12}\to\mathbb{R}_{\ge0}$ such that:</p>
+<h2 data-ke-size="size26">1. 서론 (Introduction)</h2>
+<p data-ke-size="size16">격자 게이지 이론에서 가둠은 종종 면적 법칙(area law)과 선형적으로 증가하는 정적 퍼텐셜로 진단된다. 강한 결합 격자 묘사에서 들뜸(excitations)은 소스
+    루프/세계선에 걸쳐 있는 표면으로 조직된다. Qaether 이론은 플럭스 결함이 양의 에너지를 갖는 혼합 사면체-팔면체 3-복합체(FCC 접촉 기하학에서 동기를 얻음) 상의 $\mathbb Z_{12}$ 링크
+    변수를 가진 이산 환경을 제공한다.</p>
+<p data-ke-size="size16">이 원고는 선형 가둠을 의미하는 엄밀한 하한이 도출되는 최소한의 가정 집합을 분리한다:</p>
 <ol style="list-style-type: decimal;" data-ke-list-type="decimal">
-    <li>$\epsilon_x(0)=0$,</li>
-    <li>$Q\neq0 \Rightarrow \epsilon_x(Q)\ge \epsilon_{\min}&gt;0$,</li>
-    <li>$\epsilon_x(Q)=\epsilon_x(12-Q)$ (charge conjugation symmetry, optional but natural).</li>
+    <li>소프트 플럭스 갭: 0이 아닌 모든 플라켓 플럭스는 최소 $\epsilon_{\min} &gt; 0$의 비용을 소모한다.</li>
+    <li>장 유도 곡률: 곡률은 $Q = \delta k$ (소스 없음) 또는 $Q = \delta k + s$ (소스 있음) 형태이다.</li>
+    <li>쌍대 닫힘: 비앙키 항등식은 쌍대 복합체에서의 닫힘 진술이 된다: $\partial(\star Q) = 0$ (소스 없음) 또는 $\partial(\star Q) = W$ (소스 있음).</li>
+    <li>기하학적 면적 경계: 분리된 세계선을 경계로 하는 모든 쌍대 세계면은 $|\mathrm{supp}(\star Q)| \gtrsim RT$를 만족한다.</li>
 </ol>
-<p data-ke-size="size16">Define<br />$$<br />\boxed{\epsilon_{\min}:=\min_{x\in P}\min_{Q\neq0}\epsilon_x(Q) &gt;
-    0.}<br />$$</p>
-<p data-ke-size="size16"><b>Definition 3.2 (Soft flux
-        Hamiltonian)</b><br />$$<br />\boxed{H_{\mathrm{flux}}^{\mathrm{soft}}(k)=\sum_{x\in
-    P}\epsilon_x\bigl(Q_x(k)\bigr)}.<br />$$<br />_Example:_ $\epsilon(Q)=\mu\bigl(1-\cos(2\pi Q/12)\bigr)$ yields
-    $\epsilon_{\min}=\mu(1-\cos(\pi/6))&gt;0$.</p>
 <hr data-ke-style="style1" />
-<h3 data-ke-size="size23"><b>4. Defect 2-Chains and the Discrete Bianchi Identity</b></h3>
-<p data-ke-size="size16"><b>4.1 Chain&ndash;cochain identification (basis-level)</b><br />Fix the oriented plaquette
-    basis of $C_2(X;\mathbb{Z}_{12})$ and the dual basis of $C^2(X;\mathbb{Z}_{12})$. This gives a canonical
-    coefficient-wise identification:<br />$$<br />C^2(X;\mathbb{Z}_{12})\ \cong\
-    C_2(X;\mathbb{Z}_{12}),<br />$$<br />sending a 2-cochain $Q$ to the 2-chain with the same coefficients in the
-    plaquette basis.</p>
-<p data-ke-size="size16"><b>Definition 4.1 (Defect 2-chain)</b><br />Let $Q=\delta k$. Define the defect
-    2-chain<br />$$<br />\boxed{S_Q:=\sum_{x\in P} Q_x x\ \in C_2(X;\mathbb{Z}_{12}).}<br />$$<br />Define the defect
-    support and defect &ldquo;area&rdquo;:<br />$$<br />\mathrm{supp}(S_Q):={x\in P: Q_x\neq0},\qquad
-    |S_Q|:=|\mathrm{supp}(S_Q)|.<br />$$</p>
-<p data-ke-size="size16"><b>Theorem 4.2 (Discrete Bianchi identity)</b><br />Since $Q=\delta
-    k$,<br />$$<br />\boxed{\delta Q=\delta^2 k=0\in C^3(X;\mathbb{Z}_{12}).}<br />$$<br />Equivalently, for every
-    3-cell $c\in C_3$,<br />$$<br />\langle \delta Q,c\rangle=\langle Q,\partial c\rangle=\sum_{x\subset\partial
-    c}\mathrm{sgn}(c,x)Q_x=0.<br />$$</p>
-<p data-ke-size="size16"><b>Corollary 4.3 (Source-free closure of defects)</b><br />Under the identification above,
-    $\delta Q=0$ implies<br />$$<br />\boxed{\partial S_Q=0.}<br />$$<br />Hence, in the absence of external sources,
-    defects form closed shells (no bulk endpoints).</p>
-<p data-ke-size="size16">_Why this matters:_ $\partial\partial=0$ is always true for any chain and does not constrain
-    where a defect could end. The constraint arises only because the defect is curvature derived from a link field:
-    $Q=\delta k\Rightarrow \delta Q=0$.</p>
+<h2 data-ke-size="size26">2. 사면체-팔면체 FCC 복합체 및 $\mathbb Z_{12}$ 링크 변수</h2>
+<h3 data-ke-size="size23">공리 2.1 (FCC 사면체-팔면체 세포 분할)</h3>
+<p data-ke-size="size16">$X=(V,E,P,C_3)$는 각 3-세포가 사면체 또는 팔면체인(FCC 유형 혼합 분해) 방향성 있는 유한 3-복합체이다. 플라켓은 $P = P_3 \cup
+    P_4$이며, $P_3$는 삼각형, $P_4$는 사각형 플라켓이다. 결합 차수(incidence degrees)는 균일하게 유계(bounded)이다.</p>
+<h3 data-ke-size="size23">공리 2.2 ($\mathbb Z_{12}$ 링크 변수)</h3>
+<p data-ke-size="size16">각 방향성 있는 모서리(edge) $e = (i \to j) \in E$에 대해 다음을 할당한다:<br />$$<br />k(e) = k_{ij} \in \mathbb
+    Z_{12}, \qquad k_{ji} \equiv -k_{ij} \pmod{12}.<br />$$<br />이에 대응하는 위상차는 $\Delta\phi_{ij} = \frac{\pi}{6}k_{ij}
+    \pmod{2\pi}$이며, 표준 대표값으로 $k_{ij} \in \{0,1,\dots,11\}$을 갖는다.</p>
+<h3 data-ke-size="size23">정의 2.3 (플라켓 곡률)</h3>
+<p data-ke-size="size16">$k \in C^{1}(X;\mathbb Z_{12})$에 대해 다음을 정의한다:<br />$$<br />\boxed{Q := \delta k \in
+    C^{2}(X;\mathbb Z_{12})}<br />$$<br />방향성 있는 플라켓 $p \in P$에 대해,<br />$$<br />\boxed{Q_p = \langle Q,p \rangle =
+    \sum_{e \in \partial p} \mathrm{sgn}(p,e) k(e) \pmod{12}}<br />$$</p>
 <hr data-ke-style="style1" />
-<h3 data-ke-size="size23"><b>5. Universal Energy Lower Bound from Defect Area</b></h3>
-<p data-ke-size="size16"><b>Theorem 5.1 (Energy bound)</b><br />$$<br />\boxed{H_{\mathrm{flux}}^{\mathrm{soft}}(k)\
-    \ge\ \epsilon_{\min} |S_Q|.}<br />$$</p>
-<p data-ke-size="size16"><b>Proof.</b> For each $x\in\mathrm{supp}(S_Q)$, $Q_x\neq0$, hence $\epsilon_x(Q_x)\ge
-    \epsilon_{\min}$. Summing over plaquettes gives the bound. $\square$</p>
+<h2 data-ke-size="size26">3. 균일한 갭을 갖는 소프트 플럭스 에너지</h2>
+<h3 data-ke-size="size23">공리 3.1 (소프트 플럭스 에너지)</h3>
+<p data-ke-size="size16">각 플라켓 $p \in P$에 대해 다음을 만족하는 $\epsilon_p: \mathbb Z_{12} \to \mathbb R_{\ge 0}$를 선택한다:</p>
+<ol style="list-style-type: decimal;" data-ke-list-type="decimal">
+    <li>$\epsilon_p(0) = 0$,</li>
+    <li>$Q \neq 0 \implies \epsilon_p(Q) \ge \epsilon_{\min} &gt; 0$, $p$와 무관하게 균일한 $\epsilon_{\min}$을 가짐,</li>
+    <li>선택적 대칭성: $\epsilon_p(Q) = \epsilon_p(12-Q)$.</li>
+</ol>
+<h3 data-ke-size="size23">정의 3.2 (플럭스 비용 범함수)</h3>
+<p data-ke-size="size16">배위(configuration) $k$에 대해 다음을 정의한다:<br />$$<br />\boxed{H_{\mathrm{flux}}^{\mathrm{soft}}(k) =
+    \sum_{p \in P} \epsilon_p \bigl( Q_p(k) \bigr)}<br />$$<br />시공간으로 확장될 때(6절), 동일한 표현이 시공간 플라켓 상의 유클리드 작용(Euclidean
+    action) $S_{\mathrm{flux}}^{\mathrm{soft}}$가 된다.</p>
+<h3 data-ke-size="size23">정리 3.3 (결함 수 하한)</h3>
+<p data-ke-size="size16">$\mathrm{supp}(Q) = { p \in P : Q_p \neq 0 }$ 및 $|Q| := |\mathrm{supp}(Q)|$라 하자.
+    그러면<br />$$<br />\boxed{H_{\mathrm{flux}}^{\mathrm{soft}}(k) \ge \epsilon_{\min} |Q|}<br />$$<br />증명. $Q_p \neq 0$인
+    각 플라켓은 최소 $\epsilon_{\min}$을 기여한다. 이를 합산하면 하한이 증명된다. ∎</p>
 <hr data-ke-style="style1" />
-<h3 data-ke-size="size23"><b>6. Source-Free Sector: Minimal Closed Shells and Nucleation Gap</b></h3>
-<p data-ke-size="size16">To create defects in vacuum, one must nucleate a nontrivial closed 2-cycle/shell.</p>
-<p data-ke-size="size16"><b>Assumption 6.1 (No smaller closed shells than cell boundaries)</b><br />We assume the
-    minimal nontrivial closed defect shell in the triangular sector is realised by the boundary of a single 3-cell (a
-    standard &ldquo;local minimal sphere&rdquo; assumption for this mixed complex). Concretely:</p>
-<ul style="list-style-type: disc;" data-ke-list-type="disc">
-    <li><b>Generic sector:</b> the boundary of a tetrahedron (4 triangles) is allowed.</li>
-    <li><b>Octahedral-only sector</b> (optional strengthening): tetrahedral shells are forbidden/suppressed, and the
-        minimal allowed shell is the boundary of an octahedron (8 triangles).</li>
-</ul>
-<p data-ke-size="size16">This assumption can be replaced by a purely topological constant $N_{\min}$ defined as
-    &ldquo;the minimal number of triangular plaquettes in any nonzero closed 2-chain allowed in the sector.&rdquo;</p>
-<p data-ke-size="size16"><b>Lemma 6.2 (Minimal shell size)</b><br />Let $N_{\min}$ denote the minimal number of
-    plaquettes in any allowed nonzero closed defect shell. Under Assumption 6.1:<br />$$<br />\boxed{N_{\min}=4\ \
-    (\text{generic}),\qquad N_{\min}=8\ \ (\text{octahedral-only}).}<br />$$</p>
-<p data-ke-size="size16"><b>Corollary 6.3 (Nucleation energy gap)</b><br />Any nontrivial closed defect shell costs at
-    least<br />$$<br />\boxed{E_{\mathrm{break}}\ \ge\ N_{\min}\epsilon_{\min}}<br />$$<br />i.e.,
-    $E_{\mathrm{break}}\ge 4\epsilon_{\min}$ (generic) or $E_{\mathrm{break}}\ge 8\epsilon_{\min}$ (octahedral-only).
+<h2 data-ke-size="size26">4. 쌍대 복합체, 쌍대성 사상, 그리고 닫힘으로서의 비앙키</h2>
+<p data-ke-size="size16">흔한 함정은 주(primal) 복합체에서 계수별로 공사슬(cochain)과 사슬(chain)을 '동일시'하여 $\delta Q=0 \implies
+    \partial(\text{주 2-사슬})=0$을 추론하는 것이다. 이는 거짓이다. 올바른 닫힘 진술은 쌍대 복합체에서 얻어진다.</p>
+<h3 data-ke-size="size23">가정 4.1 (세포 쌍대성의 존재)</h3>
+<p data-ke-size="size16">$X$는 FCC 사면체-팔면체 분해(또는 그 무게중심 세분화)에서 발생하는 유한 방향성 PL 3-다양체 세포 분할(경계가 있거나 없음)이다. 따라서 $X$는 세포 쌍대
+    복합체 $X^{\star}$를 허용한다. 마찬가지로 시공간 곱 $\mathcal X = X \times \{0, \dots, T\}$는 $\mathcal X^{\star}$를 허용한다.</p>
+<p data-ke-size="size16"><i>(참고: FCC 사면체-팔면체 분해의 경우, 무게중심 세분화를 통해 명시적으로 쌍대를 구성할 수 있다. 이는 다양체 유사 세포 분할의 표준 방법이다.)</i></p>
+<h3 data-ke-size="size23">공리 4.2 (사슬 수준 쌍대성)</h3>
+<p data-ke-size="size16">다음과 같은 쌍대성 사상(세포 푸앵카레 쌍대성)이 존재하여,<br />$$<br />\star : C^{p}(X;\mathbb Z_{12}) \to
+    C_{3-p}(X^{\star};\mathbb Z_{12}), \qquad<br />\star : C^{p}(\mathcal X;\mathbb Z_{12}) \to C_{4-p}(\mathcal
+    X^{\star};\mathbb Z_{12})<br />$$<br />(관습적인 방향 부호까지 고려하여) 다음을 만족한다:<br />$$<br />\boxed{\star(\delta \alpha) =
+    \partial(\star\alpha) \quad \text{모든 공사슬 } \alpha \text{에 대해}}<br />$$</p>
+<h3 data-ke-size="size23">명제 4.3 (비앙키 항등식)</h3>
+<p data-ke-size="size16">$Q = \delta k$이면,<br />$$<br />\boxed{\delta Q = \delta^2 k = 0}<br />$$</p>
+<h3 data-ke-size="size23">따름정리 4.4 (3차원에서의 소스 없는 닫힘)</h3>
+<p data-ke-size="size16">쌍대 결함 선(dual defect line)을 정의한다:<br />$$<br />\boxed{\Sigma^{\star} := \star Q \in
+    C_{1}(X^{\star};\mathbb Z_{12})}<br />$$<br />그러면<br />$$<br />\boxed{\delta Q = 0 \iff \partial\Sigma^{\star} =
+    0}<br />$$<br />따라서 소스가 없는 3차원에서는 결함이 닫힌 쌍대 루프로 나타난다.</p>
+<h3 data-ke-size="size23">따름정리 4.5 (4차원 시공간에서의 소스 없는 닫힘)</h3>
+<p data-ke-size="size16">$\mathcal X$ 상에서 쌍대 결함 세계면(dual defect worldsheet)을 정의한다:<br />$$<br />\boxed{\Sigma^{\star} :=
+    \star Q \in C_{2}(\mathcal X^{\star};\mathbb Z_{12})}<br />$$<br />그러면<br />$$<br />\boxed{\delta Q = 0 \iff
+    \partial\Sigma^{\star} = 0}<br />$$<br />따라서 소스가 없는 시공간에서는 결함이 닫힌 쌍대 세계면을 형성한다.</p>
+<hr data-ke-style="style1" />
+<h2 data-ke-size="size26">5. 디랙 시트를 통한 외부 소스: $\delta Q=J$ 및 $\partial(\star Q)=W$</h2>
+<p data-ke-size="size16">전역적으로 $Q = \delta k$를 유지하면 항상 $\delta Q = 0$이 되어 열린 결함이 금지된다. 따라서 정적 전하는 반드시 소스가 있는 비앙키 항등식에 의해
+    도입되어야 한다.</p>
+<h3 data-ke-size="size23">정의 5.1 (시공간 복합체)</h3>
+<p data-ke-size="size16">$$<br />\boxed{\mathcal X := X \times \{0, 1, \dots, T\}}<br />$$<br />를 이산 시공간이라 하자.</p>
+<h3 data-ke-size="size23">정의 5.2 (세계선으로서의 정적 소스)</h3>
+<p data-ke-size="size16">전하 $q \in \mathbb Z_{12}$ (보통 $q=1$)를 고정하자. 거리 $R$만큼 떨어져 시간 $T$ 동안 존재하는 정적 쿼크-반쿼크 쌍은 방향성 있는
+    1-사슬로 표현된다:<br />$$<br />\boxed{W_{R,T} \in C_{1}(\mathcal X;\mathbb Z_{12})}<br />$$<br />$+q$와 $-q$ 계수를 갖는 시간 방향의
+    두 세계선으로 구성된다. (주기적 시간이나 적절한 끝단 캡(end caps)을 통해 $\partial W_{R,T} = 0$을 보장한다.)</p>
+<blockquote data-ke-style="style1">
+    <p data-ke-size="size16">Qaether 참고: 귀하의 Qaether 운동학에서 '쿼크'는 점이라기보다는 자연스럽게 공간적 루프이다. 세계선을 세계관(worldtube) (루프
+        $\times$ 시간)으로 대체함으로써 동일한 형식주의가 확장된다. 여기서는 명확성을 위해 1차원 세계선 표현을 유지한다.</p>
+</blockquote>
+<h3 data-ke-size="size23">공리 5.3 (소스 공사슬과 디랙 시트)</h3>
+<p data-ke-size="size16">$J \in C^{3}(\mathcal X;\mathbb Z_{12})$를 그 쌍대가 세계선 사슬인 소스 3-공사슬이라
+    하자:<br />$$<br />\boxed{\star J = W_{R,T}}<br />$$<br />다음과 같은 배경 2-공사슬(&ldquo;디랙 시트&rdquo;)을
+    선택한다:<br />$$<br />\boxed{s \in C^{2}(\mathcal X;\mathbb Z_{12}) \quad \text{such that} \quad \delta s =
+    J}<br />$$<br />($J$가 선택된 시공간 위상에서 공경계(coboundary)일 때 존재성이 성립한다; 실제로는 소스 세계선을 펼치는(spanning) 디랙 시트를 고정한다.)</p>
+<h3 data-ke-size="size23">정의 5.4 (소스가 있는 곡률)</h3>
+<p data-ke-size="size16">물리적 곡률을 정의한다:<br />$$<br />\boxed{Q := \delta k +
+    s}<br />$$<br />그러면<br />$$<br />\boxed{\delta Q = \delta(\delta k + s) = \delta s = J}<br />$$<br />따라서 소스가 있는 비앙키
+    항등식 $\delta Q = J$는 자동으로 성립한다.</p>
+<h3 data-ke-size="size23">따름정리 5.5 (유도된 열린 세계면 경계)</h3>
+<p data-ke-size="size16">$\Sigma^{\star} := \star Q \in C_{2}(\mathcal X^{\star};\mathbb Z_{12})$라 하자.
+    그러면<br />$$<br />\boxed{\partial\Sigma^{\star} = \star(\delta Q) = \star J = W_{R,T}}<br />$$<br />따라서 결함 세계면은 경계가
+    소스 세계선과 같은 열린 상태가 되도록 강제된다.</p>
+<h3 data-ke-size="size23">보조정리 5.6 (디랙 시트 게이지 불변성)</h3>
+<p data-ke-size="size16">$s, s'$가 모두 $\delta s = \delta s' = J$를 만족한다면, $s' - s$는 2-공순환(cocycle)이다. 어떤 $\lambda \in
+    C^{1}(\mathcal X;\mathbb Z_{12})$에 대해 $s' - s = \delta\lambda$인 구역에서, 변환<br />$$<br />s \mapsto s + \delta\lambda,
+    \qquad k \mapsto k - \lambda<br />$$<br />은 $Q = \delta k + s$를 불변으로 유지한다. 따라서 $Q$에만 의존하는 모든 관측량(특히 소프트 플럭스 비용 및 유도된
+    $\Sigma^{\star}$)은 디랙 시트 대표값의 선택과 무관하다.</p>
+<p data-ke-size="size16">증명.<br />$$<br />Q' = \delta(k - \lambda) + (s + \delta\lambda) = \delta k + s =
+    Q<br />$$<br />∎</p>
+<hr data-ke-style="style1" />
+<h2 data-ke-size="size26">6. 시공간 소프트 플럭스 작용 및 결함 수 하한</h2>
+<p data-ke-size="size16">가둠 하한은 면적/세계면 진술이므로, 이를 유클리드 시공간 언어로 공식화한다.</p>
+<h3 data-ke-size="size23">정의 6.1 (시공간 소프트 플럭스 작용)</h3>
+<p data-ke-size="size16">$\mathcal X$ 상에서 다음을 정의한다:<br />$$<br />\boxed{S_{\mathrm{flux}}^{\mathrm{soft}}(k;s) = \sum_{p
+    \in P(\mathcal X)} \epsilon_p\bigl(Q_p(k;s)\bigr), \qquad Q = \delta k + s}<br />$$<br />소스에 의존하는 최소 비용을
+    정의한다:<br />$$<br />\boxed{E(R,T) := \min_{k} S_{\mathrm{flux}}^{\mathrm{soft}}(k;s)}<br />$$</p>
+<h3 data-ke-size="size23">명제 6.2 (결함 수에 의한 에너지 하한)</h3>
+<p data-ke-size="size16">$|Q| := |{p \in P(\mathcal X) : Q_p \neq 0}|$라 하자. 그러면<br />$$<br />\boxed{E(R,T) \ge
+    \epsilon_{\min} |Q|}<br />$$<br />더욱이, 쌍대성 사상 하에서 각 주 시공간 플라켓은 쌍대 시공간 플라켓에 대응하므로 그 지지대(support) 크기가
+    일치한다:<br />$$<br />\boxed{|Q| = |\Sigma^{\star}|, \qquad \Sigma^{\star} = \star Q}<br />$$<br />여기서 $|\cdot|$는 계수가
+    0이 아닌 세포의 수를 센다.</p>
+<hr data-ke-style="style1" />
+<h2 data-ke-size="size26">7. 컷 논증: $|\Sigma^{\star}| \ge cRT$</h2>
+<h3 data-ke-size="size23">정의 7.1 (거리 $R$)</h3>
+<p data-ke-size="size16">$R$을 $X$의 공간 슬라이스 1-골격(1-skeleton)에서 두 소스 위치 사이의 그래프 거리라 하자.</p>
+<h3 data-ke-size="size23">보조정리 7.2 (슬라이스 하한)</h3>
+<p data-ke-size="size16">각 시간 슬라이스 $t$에 대해, 경계 조건 $\partial\Sigma^{\star} = W_{R,T}$는 슬라이스 교집합이 두 세계선 위치를 연결하는 컷(cut)을
+    포함하도록 강제한다. 따라서 컷의 길이는 다음을 만족한다:<br />$$<br />L_t \ge R \quad \text{각 } t\text{에 대해}<br />$$</p>
+<h3 data-ke-size="size23">보조정리 7.3 (결합 한계 및 명시적 $\eta$)</h3>
+<p data-ke-size="size16">층을 이룬 시공간 복합체의 국소적 결합 구조에만 의존하는 상수 $\eta &lt; \infty$가 존재하여, $\Sigma^{\star}$ 내의 단일 쌍대 플라켓이 최대
+    $\eta$개의 슬라이스 컷에 기여하도록 한다. 엄밀한 곱(product) 층화의 경우(플라켓이 한 슬라이스에서 순수하게 공간적이거나 두 인접 슬라이스 사이에서 시간적인 경우), $\eta \le 2$로 취할
+    수 있다.</p>
+<h3 data-ke-size="size23">정리 7.4 (세계면 면적 하한)</h3>
+<p data-ke-size="size16">$|\Sigma^{\star}|$가 0이 아닌 계수를 갖는 쌍대 플라켓의 수라 하자. 그러면<br />$$<br />\boxed{|\Sigma^{\star}| \ge
+    cRT, \qquad c := \frac{1}{\eta} &gt; 0}<br />$$<br />증명. 보조정리 7.2를 합산하면 $\sum_{t=1}^{T} L_t \ge RT$가 된다. 보조정리 7.3에
+    의해 $\sum_t L_t \le \eta |\Sigma^{\star}|$이다. 이를 결합하면 $|\Sigma^{\star}| \ge \frac{RT}{\eta}$를 얻는다. ∎</p>
+<hr data-ke-style="style1" />
+<h2 data-ke-size="size26">8. 주요 가둠 정리</h2>
+<h3 data-ke-size="size23">정리 8.1 (선형 가둠 하한)</h3>
+<p data-ke-size="size16">$\partial(\star Q) = W_{R,T}$를 만족하는 소스가 있는 곡률 $Q = \delta k + s$에
+    대해,<br />$$<br />\boxed{E(R,T) \ge \epsilon_{\min}|Q| = \epsilon_{\min}|\Sigma^{\star}| \ge
+    \epsilon_{\min}cRT}<br />$$<br />끈 장력(string tension)을 다음과 같이 정의한다:<br />$$<br />\boxed{\sigma := \epsilon_{\min}c
+    &gt; 0}<br />$$<br />그러면<br />$$<br />\boxed{E(R,T) \ge \sigma RT}<br />$$</p>
+<h3 data-ke-size="size23">따름정리 8.2 (선형 정적 퍼텐셜)</h3>
+<p data-ke-size="size16">다음을 정의한다:<br />$$<br />\boxed{V(R) := \lim_{T \to \infty}
+    \frac{E(R,T)}{T}}<br />$$<br />그러면<br />$$<br />\boxed{V(R) \ge \sigma R}<br />$$</p>
+<hr data-ke-style="style1" />
+<h2 data-ke-size="size26">9. 핵생성 갭과 면적 항</h2>
+<h3 data-ke-size="size23">정의 9.1 (최소 닫힌 결함 세계면 크기)</h3>
+<p data-ke-size="size16">$N_{\min}$을 허용되는 0이 아닌 닫힌 쌍대 세계면에 있는 쌍대 플라켓의 최소 수라 하자:<br />$$<br />\boxed{N_{\min} := \min {
+    |\Gamma^{\star}| : \Gamma^{\star} \neq 0, \partial\Gamma^{\star} = 0, \Gamma^{\star} \text{ 가 구역 내에서 허용됨} }}<br />$$
 </p>
-<hr data-ke-style="style1" />
-<h3 data-ke-size="size23"><b>7. Spacetime Formulation and External Static Sources</b></h3>
-<p data-ke-size="size16"><b>Definition 7.1 (Spacetime
-        complex)</b><br />Let<br />$$<br />\boxed{\mathcal{X}:=X\times{0,1,\dots,T}}<br />$$<br />be the discrete
-    spacetime complex. Cochains/chains on $\mathcal{X}$ are defined similarly.</p>
-<p data-ke-size="size16"><b>Definition 7.2 (Static sources as $\mathbb{Z}_{12}$ worldlines)</b><br />Fix a charge
-    $q\in\mathbb{Z}_{12}$ (often $q=1$). A static quark&ndash;antiquark pair separated by spatial distance $R$ is
-    represented by an oriented 1-chain<br />$$<br />\boxed{W_{R,T}\in
-    C_1(\mathcal{X};\mathbb{Z}_{12})}<br />$$<br />given by the sum of two time-directed worldlines with coefficients
-    $+q$ and $-q$ (and opposite orientations as appropriate). This ensures $\partial W_{R,T}=0$ for periodic time
-    boundary conditions, or gives boundary insertions at the time ends in an open-time cylinder formulation.</p>
-<p data-ke-size="size16"><b>Axiom 7.3 (Source forcing: open defect worldsheet)</b><br />In the presence of the external
-    source $W_{R,T}$, admissible configurations include a defect worldsheet<br />$$<br />\boxed{\Sigma\in
-    C_2(\mathcal{X};\mathbb{Z}_{12})\quad \text{such that}\quad \partial \Sigma=W_{R,T}.}<br />$$<br />$\Sigma$ is
-    interpreted as the set (with $\mathbb{Z}_{12}$ coefficients) of plaquettes carrying nonzero flux that must span the
-    source worldlines.</p>
-<p data-ke-size="size16">This axiom is the discrete analogue of the strong-coupling/Wilson-loop &ldquo;surface spanning
-    the loop&rdquo; structure: the source cannot be realised without an attached flux sheet whose boundary is the
-    source.</p>
-<hr data-ke-style="style1" />
-<h3 data-ke-size="size23"><b>8. Cut Argument: Lower Bound on Spanning Worldsheet Area</b></h3>
-<p data-ke-size="size16">We now bound the minimal number of plaquettes needed for any $\Sigma$ with
-    $\partial\Sigma=W_{R,T}$.</p>
-<p data-ke-size="size16"><b>Lemma 8.1 (Slice-by-slice cut bound)</b><br />There exists a lattice-dependent constant
-    $c&gt;0$ such that for any $\Sigma\in C_2(\mathcal{X};\mathbb{Z}_{12})$ with
-    $\partial\Sigma=W_{R,T}$,<br />$$<br />\boxed{|\Sigma|\ \ge\ c R T,}<br />$$<br />where
-    $|\Sigma|:=|\mathrm{supp}(\Sigma)|$ counts plaquettes with nonzero coefficient.</p>
-<p data-ke-size="size16"><b>Proof (standard cut argument, with explicit constant).</b><br />For each time slice $t$,
-    intersect $\Sigma$ with the slice. The boundary condition $\partial\Sigma=W_{R,T}$ forces the slice intersection to
-    include a &ldquo;cut&rdquo; that connects the two source positions, hence requires at least $\ge R$ units of spatial
-    separation measure (graph distance). Each plaquette can contribute to the intersection of only a uniformly bounded
-    number $\eta&lt;\infty$ of slices/cut units (a local combinatorial bound depending on maximal incidence/degree and
-    allowed orientations). Therefore the total number of plaquettes must satisfy<br />$$<br />|\Sigma|\ \ge\
-    \frac{1}{\eta}RT.<br />$$<br />Set $c:=1/\eta$. $\square$</p>
-<hr data-ke-style="style1" />
-<h3 data-ke-size="size23"><b>9. Main Confinement Theorem</b></h3>
-<p data-ke-size="size16"><b>Theorem 9.1 (Area-law lower bound and string tension)</b><br />Let $Q=\delta k$ on
-    $\mathcal{X}$, let $\Sigma$ be a defect worldsheet satisfying $\partial\Sigma=W_{R,T}$, and let
-    $H_{\mathrm{flux}}^{\mathrm{soft}}$ be the soft flux Hamiltonian. Then<br />$$<br />\boxed{E(R,T)\ \ge\
-    H_{\mathrm{flux}}^{\mathrm{soft}}(k)\ \ge\ \epsilon_{\min}|\Sigma|\ \ge\ \epsilon_{\min}cRT.}<br />$$<br />Define
-    the string tension<br />$$<br />\boxed{\sigma:=\epsilon_{\min}c\
-    &gt;0.}<br />$$<br />Then<br />$$<br />\boxed{E(R,T)\ \ge\ \sigma RT.}<br />$$</p>
-<p data-ke-size="size16"><b>Corollary 9.2 (Linear confinement potential)</b><br />Define the static potential
-    by<br />$$<br />V(R):=\lim_{T\to\infty}\frac{E(R,T)}{T}.<br />$$<br />Then<br />$$<br />\boxed{V(R)\ \ge\ \sigma
-    R,}<br />$$<br />i.e., the potential grows at least linearly with separation: confinement.</p>
-<hr data-ke-style="style1" />
-<h3 data-ke-size="size23"><b>10. Nucleation Gap + Area Term (&ldquo;Jump + Linear&rdquo; refined statement)</b></h3>
-<p data-ke-size="size16">The source-free nucleation gap quantified by $E_{\mathrm{break}}$ combines with the spanning
-    area cost.</p>
-<p data-ke-size="size16"><b>Theorem 10.1 (Nucleation + area lower bound)</b><br />Assume the vacuum sector is fully
-    closed (no defects) and that creating defects requires nucleating an allowed closed shell. Then the energy (or
-    Euclidean free energy/action, depending on the implementation of the static source)
-    satisfies<br />$$<br />\boxed{E(R,T)\ \ge\ E_{\mathrm{break}}+\sigma RT,}<br />\qquad E_{\mathrm{break}}\ge
-    N_{\min}\epsilon_{\min}.<br />$$</p>
-<p data-ke-size="size16"><b>Remark (what survives in $V(R)$).</b><br />When extracting $V(R)$ via
-    $T\to\infty$,<br />$$<br />\frac{E_{\mathrm{break}}}{T}\to 0,<br />$$<br />so the linear term determines the
-    asymptotic potential, while $E_{\mathrm{break}}$ captures vacuum stability and the minimum cost to nucleate a defect
-    shell before a long worldsheet can be formed.</p>
-<hr data-ke-style="style1" />
-<h3 data-ke-size="size23"><b>11. Discussion and Outlook</b></h3>
-<p data-ke-size="size16"><b>What is robust here.</b> The confinement lower bound uses only:</p>
-<ol style="list-style-type: decimal;" data-ke-list-type="decimal">
-    <li>A strictly positive minimal flux cost $\epsilon_{\min}&gt;0$.</li>
-    <li>The field-derived Bianchi identity $\delta Q=0$ (from $Q=\delta k$).</li>
-    <li>An axiomatized source coupling that forces an open worldsheet.</li>
-    <li>A purely combinatorial area lower bound $|\Sigma|\gtrsim RT$.</li>
-</ol>
-<p data-ke-size="size16">No detailed functional form of $\epsilon(Q)$ is required beyond a gap at nonzero flux.</p>
-<p data-ke-size="size16"><b>Where the model-dependent content lives.</b></p>
+<h3 data-ke-size="size23">보조정리 9.2 (핵생성 갭)</h3>
+<p data-ke-size="size16">자명하지 않은 닫힌 결함 세계면은 최소한 다음 비용을 소모한다:<br />$$<br />\boxed{E_{\mathrm{break}} \ge
+    N_{\min}\epsilon_{\min}}<br />$$</p>
+<h3 data-ke-size="size23">구역 값과 초기 Qaether 운동학과의 연관성 (맥락)</h3>
 <ul style="list-style-type: disc;" data-ke-list-type="disc">
-    <li>The value of $c$ (hence $\sigma$) is geometric/combinatorial and depends on the lattice/complex incidence
-        structure.</li>
-    <li>The minimal shell size $N_{\min}$ depends on which defect shells are dynamically allowed (generic vs
-        octahedral-only sector).</li>
-    <li>A fully dynamical treatment of quark pair creation would modify the long-distance behaviour via string breaking;
-        here we establish a lower bound in the static-source setting.</li>
+    <li>일반 구역: 사면체 닫힌 거품(bubbles)이 동역학적으로 허용된다면, 단일 사면체 3-세포의 경계는 $N_{\min}=4$ (삼각형 플라켓)를 준다.</li>
+    <li>팔면체 (물질 세포) 구역: 팔면체 닫힘만 허용되거나 낮은 에너지에서 살아남는다면, 단일 팔면체의 경계는 $N_{\min}=8$을 준다. 이 선택은 팔면체 닫힘이 중요한 역할을 한다는 Qaether
+        운동학 결과(예: 8개의 삼각형 플라켓을 통한 중입자/경입자 세포 완성)와 일치한다.</li>
 </ul>
-<p data-ke-size="size16"><b>Future directions.</b></p>
+<p data-ke-size="size16"><i>(이러한 값들은 구역에 대한 가정이며, $N_{\min}$의 정의 자체는 엄밀한 진술로 남는다.)</i></p>
+<h3 data-ke-size="size23">정리 9.3 (개선된 하한)</h3>
+<p data-ke-size="size16">소스 배위를 실현하기 위해 펼쳐진 시트 외에 적어도 하나의 자명하지 않은 닫힌 결함 거품을 핵생성해야 한다면, 다음이
+    성립한다:<br />$$<br />\boxed{E(R,T) \ge E_{\mathrm{break}} + \sigma RT, \qquad E_{\mathrm{break}} \ge
+    N_{\min}\epsilon_{\min}}<br />$$<br />$T \to \infty$일 때, $E_{\mathrm{break}}/T \to 0$이 되며 점근적 퍼텐셜은 선형으로 유지된다.</p>
+<hr data-ke-style="style1" />
+<h2 data-ke-size="size26">10. 논의 및 전망</h2>
+<h3 data-ke-size="size23">현재 논리적으로 닫힌 부분</h3>
 <ul style="list-style-type: disc;" data-ke-list-type="disc">
-    <li>Make Axiom 7.3 derivable from an explicit source coupling term in the Qaether action/Hamiltonian (e.g., a
-        $\mathbb{Z}_{12}$ Wilson insertion).</li>
-    <li>Compute or bound $c$ explicitly for the specific tetrahedral&ndash;octahedral complex used in Qaether.</li>
-    <li>Extend to dynamical matter and identify when/if screening weakens the bound.</li>
-    <li>Explore continuum scaling limits and possible emergence of effective string actions.</li>
+    <li>비앙키/닫힘 진술이 쌍대 복합체를 통해 올바르게 사용되었다: $\delta Q$는 $\partial(\star Q)$가 된다.</li>
+    <li>외부 소스는 디랙 시트 배경 $s$를 통해 일관되게 도입되어 $\delta Q=J$ 및 $\partial(\star Q)=W$가 자동으로 도출된다.</li>
+    <li>디랙 시트의 비유일성은 게이지 여분(gauge redundancy)이다: $Q$에 의존하는 관측량은 변하지 않는다.</li>
 </ul>
-<p data-ke-size="size16"><b>References</b></p>
+<h3 data-ke-size="size23">모델에 의존하는 부분 (및 개선 방법)</h3>
+<ul style="list-style-type: disc;" data-ke-list-type="disc">
+    <li>기하학적 상수 $c=1/\eta$는 층화된 사면체-팔면체 복합체의 결합 구조에 의존한다. $\eta$를 조합론적으로 상한을 정하거나 수치적으로 $c$를 추정할 수 있다.</li>
+    <li>$N_{\min}$은 구역 규칙(사면체 거품 허용 또는 억제)에 의존한다. 팔면체 구역 $N_{\min}=8$은 Qaether의 팔면체 물질 세포 완성과 자연스럽게 일치한다.</li>
+</ul>
+<h3 data-ke-size="size23">Qaether와 가장 관련 깊은 확장</h3>
+<ul style="list-style-type: disc;" data-ke-list-type="disc">
+    <li>점과 같은 세계선을 루프 세계관으로 대체한다 (Qaether 기구의 쿼크는 루프 소스이기 때문). 그러면 쌍대성 논증은 고차원의 펼쳐진 객체와 유사한 선형 하한을 산출한다.</li>
+    <li>$SU(2)$ (스핀) 구역을 결합하여, 비가환(nonabelian) 동역학이 유효 $\epsilon_{\min}$ 및 $c$를 어떻게 수정(또는 재규격화)하는지 연구한다.</li>
+</ul>
+<hr data-ke-style="style1" />
+<h3 data-ke-size="size23">(선택 사항) 원본 초안 대비 최소 패치 목록</h3>
 <ol style="list-style-type: decimal;" data-ke-list-type="decimal">
-    <li>K. Wilson, &ldquo;Confinement of quarks,&rdquo; Phys. Rev. D 10 (1974) 2445.</li>
-    <li>J. B. Kogut and L. Susskind, &ldquo;Hamiltonian formulation of Wilson&rsquo;s lattice gauge theories,&rdquo;
-        Phys. Rev. D 11 (1975) 395.</li>
-    <li>R. Balian, J. M. Drouffe, and C. Itzykson, &ldquo;Gauge fields on a lattice. II,&rdquo; Phys. Rev. D 11 (1975)
-        2098.</li>
-    <li>F. J. Wegner, &ldquo;Duality in generalized Ising models,&rdquo; J. Math. Phys. 12 (1971) 2259.</li>
-    <li>G. &rsquo;t Hooft, &ldquo;On the phase transition towards permanent quark confinement,&rdquo; Nucl. Phys. B 138
-        (1978) 1.</li>
-    <li>A. M. Polyakov, &ldquo;Compact gauge fields and the infrared catastrophe,&rdquo; Phys. Lett. B 59 (1975) 82.
+    <li>'$C^2 \simeq C_2$가 $\partial S_Q = 0$을 의미한다'를 쌍대 복합체 쌍대성($\star\delta = \partial\star$)으로 대체.</li>
+    <li>'공리 $\partial\Sigma = W$'를 $\delta s = J$인 소스가 있는 곡률 $Q = \delta k + s$로 대체하여 $\partial(\star Q) = W$가 유도되도록 함.
     </li>
+    <li>디랙 시트 게이지 불변성 보조정리 추가.</li>
+    <li>세계면/면적 논증과 일치하도록 $E(R,T)$를 시공간 작용의 최솟값으로 정의.</li>
 </ol>
